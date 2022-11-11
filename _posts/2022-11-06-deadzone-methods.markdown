@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Algorithm choices for Koopman Analysis and DMD"
-date:   2022-11-05 22:07:42 +0800
+date:   2022-11-06 22:07:42 +0800
 categories: jekyll update
 ---
 
