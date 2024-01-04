@@ -1,34 +1,24 @@
-<!DOCTYPE html>
-<html>
+---
+layout: post
+title:  "Tool - Offset Calculator"
+date:   2024-01-04 12:00:00 +0800
+categories: Toolkit
+---
 <head>
-    <meta charset="UTF-8">
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>Offset-Calculator</title>
     <link rel="stylesheet" type="text/css" href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.bootcdn.net/ajax/libs/bootstrap-validator/0.5.3/css/bootstrapValidator.min.css">
-
     <script src="https://cdn.bootcss.com/jquery/3.0.0/jquery.min.js"></script>
     <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="https://cdn.bootcdn.net/ajax/libs/bootstrap-validator/0.5.3/js/bootstrapValidator.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/echarts@5"></script>
-
-    <style type="text/css">
-        form label {
-            font-size: 0.9em;
-            padding-left: 1em;
-            display: inline-block;
-        }
-    </style>
-
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
 </head>
+
 <body>
-    <div class="row justify-content-between" style="margin:50px;">
-    <div class="col-md-6">
+    <div class="col" style="width: 100%">
         <form id="infoForm">
-            
-            <div class="form-row form-group">
-                <div class="col-lg-6">
-                    <select class="custom-select custom-select-sm col-6" name="inp_city" required>
+            <div class="form-group row">
+                <div class="col-md-6 row">
+                    <select class="custom-select custom-select-sm col-6" type="text" name="inp_city" required>
                         <option>Harbin</option>
                         <option>Beijing</option>
                         <option>Shanghai</option>
@@ -38,86 +28,78 @@
                         <option>Lanzhou</option>
                         <option>Kunming</option>
                     </select>
-                    <label>City</label>
+                    <label class="col-6 col-form-lable">City</label>
                 </div>
-                <div class="col-lg-6 form-inline">
-                    <input type="text" class="form-control form-control-sm col-6" name="inp_date" value="2020-12-21" required>
-                    <label>Date</label>
+                <div class="col-md-6 row">
+                    <input type="text" class="form-control form-control-sm col-6" name="inp_date" value="2024-12-21" required>
+                    <label class="col-6 col-form-lable">Date</label>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-md-6 row">
+                    <input type="number" class="form-control form-control-sm col-4" name="inp_axis" value="180" required>
+                    <label class="col-8">Normal Axis</label>
+                </div>
+                <div class="col-md-6 row">
+                    <input type="number" class="form-control form-control-sm col-4" name="inp_clo" value="0.2" required>
+                    <label class="col-8">Cloudiness</label>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-md-6 row">
+                    <input type="number" class="form-control form-control-sm col-4" name="inp_temp1" value="-10" required>
+                    <label class="col-8">Max Temperature</label>
+                </div>
+                <div class="col-md-6 row">
+                    <input type="number" class="form-control form-control-sm col-4" name="inp_temp2" value="-22" required>
+                    <label class="col-8">Min Temperature</label>
                 </div>
             </div>
 
-            <div class="form-row form-group">
-                <div class="col-lg-6 form-inline">
-                    <input type="text" class="form-control form-control-sm col-4" name="inp_axis" value="180" required>
-                    <label>Normal Axis</label>
-                </div>
-                <div class="col-lg-6 form-inline">
-                    <input type="text" class="form-control form-control-sm col-4" name="inp_clo" value="0.2" required>
-                    <label>Cloudiness</label>
-                </div>
-            </div>
-
-            <div class="form-row form-group">
-                <div class="col-lg-6 form-inline">
-                    <input type="text" class="form-control form-control-sm col-4" name="inp_temp1" value="-10" required>
-                    <label>Max Temperature</label>
-                </div>
-                <div class="col-lg-6 form-inline">
-                    <input type="text" class="form-control form-control-sm col-4" name="inp_temp2" value="-22" required>
-                    <label>Min Temperature</label>
-                </div>
-            </div>
-
-            <div class="custom-control custom-checkbox">
+            <div class="from-group row custom-control custom-checkbox">
                 <input type="checkbox" class="custom-control-input" id="radtoggle">
-                <label class="custom-control-label" for="radtoggle">Grab solar radiation infomation from epw files</label>
+                <label class="custom-control-label" for="radtoggle">Grab solar radiation information from EPW files</label>
             </div>
-            <div class="custom-control custom-checkbox">
+            <div class="form-group row custom-control custom-checkbox">
                 <input type="checkbox" class="custom-control-input" id="temptoggle">
-                <label class="custom-control-label" for="temptoggle">Grab temperature series from epw files</label>
+                <label class="custom-control-label" for="temptoggle">Grab temperature series from EPW files</label>
             </div>
 
             <hr>
 
-            <div class="form-row">
-                <div class="col-lg-6 form-group form-inline">
-                    <input type="text" class="form-control form-control-sm col-4" name="inp_uwin" value="2.5" required>
-                    <label>U_window (W/m<sup>2</sup>K)</label>
+            <div class="form-group row">
+                <div class="col-md-6 row">
+                    <input type="number" class="form-control form-control-sm col-4" name="inp_uwall" value="1" required>
+                    <label class="col-8">U_wall (W/m<sup>2</sup>⋅K)</label>
                 </div>
-                <div class="col-lg-6 form-group form-inline">
-                    <input type="text" class="form-control form-control-sm col-4" name="inp_peo" value="15" required>
-                    <label>q_people (W/m<sup>2</sup>)</label>
+                <div class="col-md-6 row">
+                    <input type="number" class="form-control form-control-sm col-4" name="inp_uwin" value="2.5" required>
+                    <label class="col-8">U_window (W/m<sup>2</sup>⋅K)</label>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-md-6 row">
+                    <input type="number" class="form-control form-control-sm col-4" name="inp_peo" value="15" required>
+                    <label class="col-8">q_people (W/m<sup>2</sup>)</label>
+                </div>
+                <div class="col-md-6 row">
+                    <input type="number" class="form-control form-control-sm col-4" name="inp_lgt" value="7" required>
+                    <label class="col-8">q_light (W/m<sup>2</sup>)</label>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-md-6 row">
+                    <input type="number" class="form-control form-control-sm col-4" name="inp_eqp" value="20" required>
+                    <label class="col-8">q_equip (W/m<sup>2</sup>)</label>
+                </div>
+                <div class="col-md-6 row">
+                    <input type="number" class="form-control form-control-sm col-4" name="inp_spt" value="18" required>
+                    <label class="col-8">Setpoint (℃)</label>
                 </div>
             </div>
 
-            <div class="form-row">
-                <div class="col-lg-6 form-group form-inline">
-                    <input type="text" class="form-control form-control-sm col-4" name="inp_uwall" value="1" required>
-                    <label>U_wall (W/m<sup>2</sup>K)</label>
-                </div>
-                <div class="col-lg-6 form-group form-inline">
-                    <input type="text" class="form-control form-control-sm col-4" name="inp_lgt" value="7" required>
-                    <label>q_light (W/m<sup>2</sup>)</label>
-                </div>
-            </div>
-
-            <div class="form-row">
-                <div class="col-lg-6 form-group form-inline">
-                    <input type="text" class="form-control form-control-sm col-4" name="inp_spt" value="18" required>
-                    <label>Setpoint (℃)</label>
-                </div>
-                <div class="col-lg-6 form-group form-inline">
-                    <input type="text" class="form-control form-control-sm col-4" name="inp_eqp" value="20" required>
-                    <label>q_equip (W/m<sup>2</sup>)</label>
-                </div>
-            </div>
-
-            <div class="form-group form-inline">
-                <input type="text" class="form-control form-control-sm col-3" name="inp_shgc" value="0.7" required>
-                <label>Solar Heat Gain Coefficient (frac)</label>
-            </div>
-            <div class="form-group form-inline">
-                <select class="custom-select custom-select-sm col-3" name="inp_ctsf" id="ctsfselector" required>
+            <div class="form-group row">
+                <select class="custom-select custom-select-sm col-3" name="inp_ctsf" type="text" id="ctsfselector" required>
                     <option>Blink</option>
                     <option>Curtain</option>
                     <option>Stud</option>
@@ -126,77 +108,68 @@
                     <option>BrickMass</option>
                     <option>Customize!</option>
                 </select>
-                <label>Conduction Time Series Factors (frac)</label>
+                <label class="col-9">Conduction Time Series Factors (fraction)</label>
             </div>
 
             <div id="materialpopout" style="display: none;">
-                <div class="form-row">
-                <div class="col-lg-6 form-group form-inline">
-                    <input type="text" class="form-control form-control-sm col-4" name="inp_cond" value="1.95" required>
-                    <label>Conductivity (W/mK)</label>
+                <div class="form-group row">
+                    <div class="col-md-6 row">
+                        <input type="number" class="form-control form-control-sm col-3" name="inp_cond" value="1.95" required>
+                        <label class="col-9">Conductivity (W/m⋅K)</label>
+                    </div>
+                    <div class="col-md-6 row">
+                        <input type="number" class="form-control form-control-sm col-3" name="inp_den" value="2242.5" required>
+                        <label class="col-9">Density (kg/m<sup>3</sup>)</label>
+                    </div>
                 </div>
-                <div class="col-lg-6 form-group form-inline">
-                    <input type="text" class="form-control form-control-sm col-4" name="inp_den" value="2242.5" required>
-                    <label>Density (kg/m<sup>3</sup>)</label>
+                <div class="form-group row">
+                    <div class="col-md-6 row">
+                        <input type="number" class="form-control form-control-sm col-3" name="inp_cp" value="900" required>
+                        <label class="col-9">Capacity (J/kg⋅K)</label>
+                    </div>
+                    <div class="col-md-6 row">
+                        <input type="number" class="form-control form-control-sm col-3" name="inp_thickness" value="0.304" required>
+                        <label class="col-9">Thickness (m)</label>
+                    </div>
                 </div>
             </div>
 
-            <div class="form-row">
-                <div class="col-lg-6 form-group form-inline">
-                    <input type="text" class="form-control form-control-sm col-4" name="inp_cp" value="900" required>
-                    <label>Capacity (J/kgK)</label>
-                </div>
-                <div class="col-lg-6 form-group form-inline">
-                    <input type="text" class="form-control form-control-sm col-4" name="inp_thickness" value="0.304" required>
-                    <label>Thickness (m)</label>
-                </div>
-            </div>
-
-            </div>
-            <div class="form-group form-inline">
-                <select class="custom-select custom-select-sm col-3" name="inp_rtf" required>
+            <div class="form-group row">
+                <select class="custom-select custom-select-sm col-3" type="text" name="inp_rtf" required>
                     <option>Blink</option>
                     <option>Light</option>
                     <option>Medium</option>
                     <option>Heavy</option>
                 </select>
-                <label>Radiant Time Factors (frac)</label>
+                <label class="col-9">Radiant Time Factors (fraction)</label>
             </div>
 
             <hr>
 
-            <div class="form-row">
-                <div class="col-md-6 form-group form-inline">
-                    <input type="text" class="form-control form-control-sm col-4" name="inp_h" value="4" required>
-                    <label>Height (m)</label>
+            <div class="form-group row">
+                <div class="col-md-6 row">
+                    <input type="number" class="form-control form-control-sm col-4" name="inp_h" value="4" required>
+                    <label class="col-8">Height (m)</label>
                 </div>
-                <div class="col-md-6 form-group form-inline">
-                    <input type="text" class="form-control form-control-sm col-4" name="inp_sill" value="1" required>
-                    <label>Sill Height (m)</label>
+                <div class="col-md-6 row">
+                    <input type="number" class="form-control form-control-sm col-4" name="inp_sill" value="1" required>
+                    <label class="col-8">Sill Height (m)</label>
                 </div>
             </div>
-
-            <div class="form-group form-inline">
-                <input type="text" class="form-control form-control-sm col-3" name="inp_wwr" value="0.3" required>
-                <label>Window to Wall Ratio (frac)</label>
+            <div class="form-group row">
+                <input type="number" class="form-control form-control-sm col-3" name="inp_wwr" value="0.3" required>
+                <label class="col-9">Window to Wall Ratio (fraction)</label>
             </div>
-
+            <div class="form-group row">
+                <input type="number" class="form-control form-control-sm col-3" name="inp_shgc" value="0.7" required>
+                <label class="col-9">Solar Heat Gain Coefficient (fraction)</label>
+            </div>
         </form>
-
-        <button class="btn btn-outline-danger btn-sm btn-block release" style="margin-top: 20px;">Calculate</button>
-
-
     </div>
 
-    <div class="col-md-6">
-        <div id="barChart" style="width: 100%; height:350px;"></div>
-        <div class="form-group" style="padding-left: 50px; padding-right: 50px;">
-            <label for="recorder">Example textarea</label>
-            <textarea class="form-control" id="recorder" rows="8"></textarea>
-        </div>
-    </div>
+    <button class="btn btn-outline-danger btn-sm btn-block release" style="margin-top: 20px;">Calculate</button>
 
-    </div>
+    <div id="barChart" style="width: 100%; height:350px; margin-top: 50px;"></div>
 
     <script>
         // function converting date object to Julia day
@@ -237,13 +210,20 @@
                 title: {
                     text: ''
                 },
+                legend: {
+                    right: '10%'
+                },
                 xAxis: {
                     type: 'category',
+                    name: 'hour',
                     data: ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', 
                         '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23']
                 },
                 yAxis: {
-                    type: 'value'
+                    type: 'value',
+                    name: 'offset(m)',
+                    min: 0,
+                    max: 10
                 },
                 // the drawing order follows the sequence in series list
                 series: [
@@ -260,7 +240,12 @@
                             {
                                 name: 'dEwin',
                                 yAxis: dEwin,
-                                lineStyle: {normal: {color: "#437caf", type: "solid"}}
+                                lineStyle: {normal: {color: "#437caf", type: "solid"}},
+                                label: {
+                                    show: true, 
+                                    position: 'insideEndTop',
+                                    formatter: '{b}: {c}'
+                                }
                             }
                             ]
                         },
@@ -279,7 +264,12 @@
                             {
                                 name: 'dEven',
                                 yAxis: dEven,
-                                lineStyle: {normal: {color: "#437caf", type: "solid"}}
+                                lineStyle: {normal: {color: "#437caf", type: "solid"}},
+                                label: {
+                                    show: true, 
+                                    position: 'insideEndTop',
+                                    formatter: '{b}: {c}'
+                                }
                             }
                             ]
                         },
@@ -707,7 +697,6 @@
             let RTSsolar = RTSsolardict[rts];
             let RTSmass = RTSmassdict[rts];
             let CTSFwall = CTSFdict[ctsf];
-            console.log(RTSsolar, RTSmass, CTSFwall);
             if (ctsf === 'Customize!') {
                 CTSFwall = ctsfCalc(cond, den, cp, thickness, cond/thickness, 3);
             }
@@ -965,4 +954,3 @@
 
     </script>
 </body>
-</html>
