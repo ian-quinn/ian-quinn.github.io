@@ -31,7 +31,7 @@ categories: Toolkit
                     <label class="col-6 col-form-lable">City</label>
                 </div>
                 <div class="col-md-6 row">
-                    <input type="text" class="form-control form-control-sm col-6" name="inp_date" value="2024-12-21" required>
+                    <input type="date" class="form-control form-control-sm col-6" name="inp_date" value="2024-12-21" required>
                     <label class="col-6 col-form-lable">Date</label>
                 </div>
             </div>
@@ -55,7 +55,6 @@ categories: Toolkit
                     <label class="col-8">Min Temperature</label>
                 </div>
             </div>
-
             <div class="from-group row custom-control custom-checkbox">
                 <input type="checkbox" class="custom-control-input" id="radtoggle">
                 <label class="custom-control-label" for="radtoggle">Grab solar radiation information from EPW files</label>
@@ -171,6 +170,11 @@ categories: Toolkit
 
     <div id="barChart" style="width: 100%; height:350px; margin-top: 50px;"></div>
 
+    <div class="form-group">
+        <label for="recorder">Console log</label>
+        <textarea class="form-control" id="recorder" rows="10"></textarea>
+    </div>
+
     <script>
         // function converting date object to Julia day
         const dayOfYear = date =>
@@ -200,8 +204,48 @@ categories: Toolkit
             let cp = $("[name='inp_cp']").val();
             let thickness = $("[name='inp_thickness']").val();
 
-            let [dIso, dMix, dEven, dEwin] = offsetCalc(city, stamp, psi, cloudiness, maxTemp, minTemp, uWall, uGlazing, ampPeople, ampLight, ampEquip, setTemp, SHGC, ctsf, rts, H, Hsill, WWR, cond, den, cp, thickness);
+            let temps = new Array(24);
+            for (let i = 0; i < 24; i++) {
+                temps[i] = (maxTemp-minTemp) * Math.sin((i-7) * Math.PI/12) / 2 + (maxTemp + minTemp) / 2;
+            }
 
+            let date = new Date(Date.parse(stamp));
+            let month = date.getMonth(); // return month [0, 11]
+            let day = date.getDate(); // returns the day in a month
+
+            let toggleTemp = $('#temptoggle:checked').val();
+            if (toggleTemp === 'on') {
+                // overwrite temps with epw data
+                fetch("{{ '/assets/epw.json' | relative_url }}")
+                    .then((response) => response.json())
+                    .then((data) => {
+                        let tempSeries = data[city][month + 1].split(',').map(Number);
+                        for (let i = 0; i < 24; i++) {
+                            temps[i] = tempSeries[(day - 1) * 24 + i];
+                        }
+                        console.log(temps);
+                        let [dIso, dMix, dAvg_24, dAvg_11, dMax, dMin] = offsetCalc(city, stamp, psi, cloudiness, temps, uWall, uGlazing, ampPeople, ampLight, ampEquip, setTemp, SHGC, ctsf, rts, H, Hsill, WWR, cond, den, cp, thickness);
+                        drawECharts(dIso, dMix, dAvg_24, dAvg_11, dMin);
+                        logResults(dIso, dMix, dAvg_24, dAvg_11);
+                    });
+            }
+            else {
+                let [dIso, dMix, dAvg_24, dAvg_11, dMax, dMin] = offsetCalc(city, stamp, psi, cloudiness, temps, uWall, uGlazing, ampPeople, ampLight, ampEquip, setTemp, SHGC, ctsf, rts, H, Hsill, WWR, cond, den, cp, thickness);
+                drawECharts(dIso, dMix, dAvg_24, dAvg_11, dMin);
+                logResults(dIso, dMix, dAvg_24, dAvg_11);
+            }
+        })
+
+        function logResults(dIso, dMix, dAvg_24, dAvg_11) {
+            let recordings = "hourly d presuming indoor heat gains are isolated: [" + dIso.toString() + "]\n" + 
+                "hourly d presuming indoor heat gains are fully mixed: [" + dMix.toString() + "]\n" + 
+                "24-hour average d by lumped indoor air: [" + dAvg_24.toString() + "]\n" + 
+                "11-working-hour average d by lumped indoor air: [" + dAvg_11.toString() + "]";
+
+            document.getElementById("recorder").value = recordings;
+        }
+
+        function drawECharts(dIso, dMix, dAvg_24, dAvg_11, dMin) {
             // Create an ECharts instance
             let myChart = echarts.init(document.getElementById('barChart'));
 
@@ -223,12 +267,12 @@ categories: Toolkit
                     type: 'value',
                     name: 'offset(m)',
                     min: 0,
-                    max: 10
+                    max: 15
                 },
                 // the drawing order follows the sequence in series list
                 series: [
                     {
-                        name: 'dMix',
+                        name: 'dIso',
                         type: 'bar',
                         barGap: '-100%',
                         itemStyle: {
@@ -238,8 +282,32 @@ categories: Toolkit
                             symbol:['none','none'],
                             data: [
                             {
-                                name: 'dEwin',
-                                yAxis: dEwin,
+                                name: '24_dAvg',
+                                yAxis: dAvg_24,
+                                lineStyle: {normal: {color: "#437caf", type: "solid"}},
+                                label: {
+                                    show: true, 
+                                    position: 'insideEndTop',
+                                    formatter: '{b}: {c}'
+                                }
+                            }
+                            ]
+                        },
+                        data: dIso
+                    },
+                    {
+                        name: 'dMix',
+                        type: 'bar',
+                        barGap: '-100%',
+                        itemStyle: {
+                            color: '#b56a8d' // Set the color for Series 2
+                        },
+                        markLine: {
+                            symbol:['none','none'],
+                            data: [
+                            {
+                                name: '11_dAvg',
+                                yAxis: dAvg_11,
                                 lineStyle: {normal: {color: "#437caf", type: "solid"}},
                                 label: {
                                     show: true, 
@@ -252,41 +320,19 @@ categories: Toolkit
                         data: dMix
                     },
                     {
-                        name: 'dIso',
-                        type: 'bar',
-                        barGap: '-100%',
+                        name: 'dMin',
+                        type: 'line',
                         itemStyle: {
-                            color: '#b56a8d' // Set the color for Series 2
+                            color: '#ccc'
                         },
-                        markLine: {
-                            symbol:['none','none'],
-                            data: [
-                            {
-                                name: 'dEven',
-                                yAxis: dEven,
-                                lineStyle: {normal: {color: "#437caf", type: "solid"}},
-                                label: {
-                                    show: true, 
-                                    position: 'insideEndTop',
-                                    formatter: '{b}: {c}'
-                                }
-                            }
-                            ]
-                        },
-                        data: dIso
+                        data: dMin
                     }
                 ]
             };
 
             // Set the chart options
             myChart.setOption(options);
-        })
-        
-        // testing region
-        // const [elevation, azimuth] = solarCalc(121.45, 31.4, 8, "2024-01-04 16:00:00");
-        // console.log(offsetCalc("Shanghai", "2024-01-04", 180, 0.2, -10, -22, 1, 2.5, 15,
-        //     7, 20, 18, 0.7, "Stud", "Medium", 4, 1, 0.3, 1.95, 2242.5, 900, 0.304));
-
+        }
 
         // function to get the solar Zenith angle
         function solarCalc(latitude, longitude, utc_offset, timestamp){
@@ -317,12 +363,12 @@ categories: Toolkit
 
             let lat_radians = latitude * Math.PI / 180.0;
             let d_radians = declination * Math.PI / 180.0;
-            let SHA_radians = SHA_corrected * Math.PI / 180.0;
+            let SHA_radians = SHA * Math.PI / 180.0;
 
             let SZA_radians = Math.acos(Math.sin(lat_radians) * Math.sin(d_radians) +
                 Math.cos(lat_radians) * Math.cos(d_radians) * Math.cos(SHA_radians));
 
-            let SEA = SZA_radians / Math.PI * 180.0;
+            let SEA = 90 - SZA_radians / Math.PI * 180.0;
 
             let cos_AZ = (Math.sin(d_radians) - Math.sin(lat_radians) * Math.cos(SZA_radians)) / (
                 Math.cos(lat_radians) * Math.sin(SZA_radians));
@@ -569,9 +615,7 @@ categories: Toolkit
         }
 
         
-        function offsetCalc(city, stamp, psi, cloudiness, maxTemp, minTemp, uWall, uGlazing, ampPeople, ampLight, ampEquip, setTemp, SHGC, ctsf, rts, H, Hsill, WWR, cond, den, cp, thickness) {
-
-            console.log(city, stamp, psi, cloudiness, maxTemp, minTemp, uWall, uGlazing, ampPeople, ampLight, ampEquip, setTemp, SHGC, ctsf, rts, H, Hsill, WWR, cond, den, cp, thickness);
+        function offsetCalc(city, stamp, psi, cloudiness, temps, uWall, uGlazing, ampPeople, ampLight, ampEquip, setTemp, SHGC, ctsf, rts, H, Hsill, WWR, cond, den, cp, thickness) {
 
             function dotProduct(list1, list2) {
                 let product = 0;
@@ -706,11 +750,8 @@ categories: Toolkit
             let num_day = dayOfYear(date);
 
             // only use sinusoid temperature
-            let seriesTout = new Array(24);
+            let seriesTout = temps;
 
-            for (let i = 0; i < 24; i++) {
-                seriesTout[i] = (maxTemp-minTemp) * Math.sin((i-7) * Math.PI/12) / 2 + (maxTemp + minTemp) / 2;
-            }
             // Calculate load from solar beam
             let azimuths = new Array(24);
             let altitudes = new Array(24);
@@ -720,8 +761,9 @@ categories: Toolkit
             let theta_cos = new Array(24);
             for (let i = 0; i < 24; i++) {
                 let beta_rad = altitudes[i] / 180 * Math.PI;
-                let phi_rad = Math.abs(azimuths[i]-psi) / 180 * Math.PI;
+                let phi_rad = Math.abs(azimuths[i]-psi) * HeavisideNum(90 - Math.abs(azimuths[i]-psi)) / 180 * Math.PI;
                 theta_cos[i] = Math.cos(beta_rad)*Math.cos(phi_rad);
+                
             }
 
             // use default sky conditions apart from EPW
@@ -741,8 +783,9 @@ categories: Toolkit
                 eBeam[i] = (E0 * Math.exp(-tb*Math.pow(m,ab)) * (1-cloudiness) * islit);
                 eDiffuse[i] = (E0 * Math.exp(-td*Math.pow(m,ad)) * (1-0.8*cloudiness) * islit);
             }
+            
             let Ys = new Array(24).fill(0);
-            for (let i = 0; i < theta_cos.length; i++) {
+            for (let i = 0; i < 24; i++) {
                 if (altitudes[i] < -20) {
                 }
                 else {
@@ -750,21 +793,23 @@ categories: Toolkit
                         Ys[i] = 0.45;
                     }
                     else {
-                        Ys[i] = 0.55+0.437*theta_cos[i]+0.313*theta_cos[i]*theta_cos[i];
+                        Ys[i] = 0.55 + 0.437 * theta_cos[i] + 0.313 * theta_cos[i] * theta_cos[i];
                     }
                 }
             }
             let qDiffuse = new Array(24).fill(0);
             for (let i = 0; i < 24; i++) {
-                qDiffuse[i] = eDiffuse[i] * Ys[i];
+                if (altitudes[i] > -20) {
+                    qDiffuse[i] = eDiffuse[i] * Ys[i];
+                }
             }
 
-            let heavisideTheta = HeavisideFilter(theta_cos);
             let qBeam = new Array(24).fill(0);
             for (let i = 0; i < 24; i++) {
-                qBeam[i] = eBeam[i] * heavisideTheta[i];
+                if (altitudes[i] > 0) {
+                    qBeam[i] = eBeam[i] * theta_cos[i];
+                }
             }
-
             // Calculate load from heat emission
             //let seriesTsol = [];
             // for (i = 0; i < seriesTout.length; i++) {
@@ -778,49 +823,68 @@ categories: Toolkit
             for (let i = 0; i < 24; i++) {
                 qTotal[i] = qBeam[i] + qDiffuse[i];
             }
+
             let tempDiff = seriesTsol.map(element => setTemp - element);
             let loadSolar = loopSigma(qTotal, RTSsolar);
             let loadWall = loopSigma(tempDiff, CTSFwall).map(element => element * uWall_);
             // Calculate load from internal source
-            let fracRad = 0.6;
+            let fracRad = 0.4;
             let qConv = new Array(24).fill(0);
             let qRad = new Array(24).fill(0);
             for (let i = 0; i < 24; i++) {
+                // will people heat load participates in the radiation lag?
                 qConv[i] = (schPeople[i]*ampPeople + schLight[i]*ampLight) * (1-fracRad) + schEquip[i]*ampEquip;
                 qRad[i] = (schPeople[i]*ampPeople + schLight[i]*ampLight) * fracRad;
             }
 
-            let loadMass = loopSigma(qConv, RTSmass);
+            let loadMass = loopSigma(qRad, RTSmass);
             let beta_rad = new Array(24).fill(0.001);
             let loadStructure = new Array(24).fill(0);
 
             for (let i = 0; i < 24; i++) {
-                loadMass[i] = loadMass[i] + qRad[i];
+                loadMass[i] = loadMass[i] + qConv[i];
                 if (altitudes[i] > 0) {
                     beta_rad[i] = altitudes[i] /180 * Math.PI;
                 }
                 loadStructure[i] = (WWR*uGlazing*(setTemp-seriesTout[i]) + (1-WWR)*loadWall[i]) * H;
             }
 
-
-            let distances = new Array(24).fill(0);
+            let distances = new Array(24).fill(9999);
             for (let i = 0; i < 24; i++) {
                 distances[i] = loadStructure[i] / loadMass[i];
-                if (loadStructure[i] > loadMass[i] * Hsill / Math.tan(beta_rad[i])) {
-                    distances[i] = Hsill / Math.tan(beta_rad[i]) + (loadStructure[i] - loadMass[i] * Hsill / Math.tan(beta_rad[i])) / loadSolar[i] / SHGC;
+                // whether the inner load can balance off the heating load of exterior wall (loadStructure)
+                // if it can not
+                if (loadStructure[i] > loadMass[i] * Hsill / Math.tan(beta_rad[i]) + loadSolar[i] * SHGC * H * WWR) {
+                    distances[i] = (loadStructure[i] - loadMass[i] * Hsill / Math.tan(beta_rad[i]) - loadSolar[i] * SHGC * H * WWR) / loadMass[i] + (Hsill + H * WWR) / Math.tan(beta_rad[i]);
+                }
+                else {
+                    if (loadStructure[i] > loadMass[i] * Hsill / Math.tan(beta_rad[i])) {
+                        distances[i] = Hsill / Math.tan(beta_rad[i]) + (loadStructure[i] - loadMass[i] * Hsill / Math.tan(beta_rad[i])) / loadSolar[i] / SHGC;
+                    }
+                    else {
+                    }
                 }
             }
-
+            // it seems that I presumed a 10-meter indoor depth here...
+            // if the internal heat emission per meter is not 0, then it can be canceled off by the loadStructure
             let distances_mix = new Array(24).fill(9999);
             for (let i = 0; i < 24; i++) {
                 if (loadMass[i] + loadSolar[i] * SHGC * H * WWR / 10 !== 0) {
+                    // presuming a complete mix that the solar heat gain distributes evenly in the 10-meter depth
                     distances_mix[i] = loadStructure[i] / (loadMass[i] + loadSolar[i] * SHGC * H * WWR / 10);
                 }
             }
 
+            let Dmax = new Array(24).fill(0);
+            let Dmin = new Array(24).fill(0);
+            for (let i = 0; i < 24; i++) {
+                Dmax[i] = (Hsill + H * WWR) / Math.tan(beta_rad[i]);
+                Dmin[i] = Hsill / Math.tan(beta_rad[i]);
+            }
+
             let Diso = HeavisideFilter(distances);
             let Dmix = HeavisideFilter(distances_mix);
-            let Diso_ = Diso.map(element => Math.round(element * 10)/10);
+            let Diso_ = Diso.map(element => Math.round(element * 10)/10); // round to 0.1
             let Dmix_ = Dmix.map(element => Math.round(element * 10)/10);
 
             let loadMass_sigma = 0,
@@ -828,24 +892,26 @@ categories: Toolkit
                 loadStructure_sigma = 0;
             loadMass.forEach((number) => { loadMass_sigma += number; });
             loadSolar.forEach((number) => { loadSolar_sigma += number * SHGC * H * WWR; });
-            loadMass.forEach((number) => { loadStructure_sigma += number; });
+            loadStructure.forEach((number) => { loadStructure_sigma += number; });
 
-            let Deven = 9999;
+            let Davg_24 = 9999;
+            // for 0-24 hours' full heat mixing, the cancel-off boundary
             if (loadMass_sigma + loadSolar_sigma !== 0) {
-                    Deven = loadStructure_sigma / ((loadMass_sigma + loadSolar_sigma) / 10);
+                    Davg_24 = loadStructure_sigma / ((loadMass_sigma + loadSolar_sigma) / 10);
                 }
 
             let loadStructure_sigma_part = 0,
                 loadMass_sigma_part = 0,
                 loadSolar_sigma_part = 0;
-            for (let i = 8; i < 20; i++) {
+            // for 11 working hours, the cancel-off boundary based on the fully mixed indoor environment
+            for (let i = 8; i < 18; i++) {
                 loadStructure_sigma_part += loadStructure[i];
                 loadMass_sigma_part += loadMass[i];
                 loadSolar_sigma_part += loadSolar[i] * SHGC * H * WWR;
             }
-            let Dewin = loadStructure_sigma_part / (loadMass_sigma_part + loadSolar_sigma_part / 10);
+            let Davg_11 = loadStructure_sigma_part / (loadMass_sigma_part + loadSolar_sigma_part / 10);
 
-            return [Diso_, Dmix_, Deven, Dewin]
+            return [Diso_, Dmix_, Davg_24, Davg_11, Dmax, Dmin]
         }
 
         $(function() {
