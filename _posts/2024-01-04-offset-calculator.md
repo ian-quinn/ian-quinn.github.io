@@ -325,7 +325,7 @@ categories: Toolkit
                         barGap: '-70%',
                         itemStyle: {
                             color: 'rgb(249, 174, 88)',
-                            opacity: 0.5
+                            opacity: 0.8
                         },
                         data: [0]
                     },
