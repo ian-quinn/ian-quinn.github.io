@@ -101,10 +101,10 @@ categories: Toolkit
                 <select class="custom-select custom-select-sm col-3" name="inp_ctsf" type="text" id="ctsfselector" required>
                     <option>Blink</option>
                     <option>Curtain</option>
-                    <option>Stud</option>
+                    <option>StudWall</option>
                     <option>EIFS</option>
                     <option>Brick</option>
-                    <option>BrickMass</option>
+                    <option>Concrete</option>
                     <option>Customize!</option>
                 </select>
                 <label class="col-9">Conduction Time Series Factors (fraction)</label>
@@ -223,29 +223,28 @@ categories: Toolkit
                         for (let i = 0; i < 24; i++) {
                             temps[i] = tempSeries[(day - 1) * 24 + i];
                         }
-                        console.log(temps);
-                        let [dIso, dMix, dAvg_24, dAvg_11, dMax, dMin] = offsetCalc(city, stamp, psi, cloudiness, temps, uWall, uGlazing, ampPeople, ampLight, ampEquip, setTemp, SHGC, ctsf, rts, H, Hsill, WWR, cond, den, cp, thickness);
-                        drawECharts(dIso, dMix, dAvg_24, dAvg_11, dMin);
-                        logResults(dIso, dMix, dAvg_24, dAvg_11);
+                        let [dIso, dMix, dAvg_24, dAvg_10, Dmax, Dmin] = offsetCalc(city, stamp, psi, cloudiness, temps, uWall, uGlazing, ampPeople, ampLight, ampEquip, setTemp, SHGC, ctsf, rts, H, Hsill, WWR, cond, den, cp, thickness);
+                        drawECharts(dIso, dMix, dAvg_24, dAvg_10, Dmax, Dmin);
+                        logResults(dIso, dMix, dAvg_24, dAvg_10);
                     });
             }
             else {
-                let [dIso, dMix, dAvg_24, dAvg_11, dMax, dMin] = offsetCalc(city, stamp, psi, cloudiness, temps, uWall, uGlazing, ampPeople, ampLight, ampEquip, setTemp, SHGC, ctsf, rts, H, Hsill, WWR, cond, den, cp, thickness);
-                drawECharts(dIso, dMix, dAvg_24, dAvg_11, dMin);
-                logResults(dIso, dMix, dAvg_24, dAvg_11);
+                let [dIso, dMix, dAvg_24, dAvg_10, Dmax, Dmin] = offsetCalc(city, stamp, psi, cloudiness, temps, uWall, uGlazing, ampPeople, ampLight, ampEquip, setTemp, SHGC, ctsf, rts, H, Hsill, WWR, cond, den, cp, thickness);
+                drawECharts(dIso, dMix, dAvg_24, dAvg_10, Dmax, Dmin);
+                logResults(dIso, dMix, dAvg_24, dAvg_10);
             }
         })
 
-        function logResults(dIso, dMix, dAvg_24, dAvg_11) {
+        function logResults(dIso, dMix, dAvg_24, dAvg_10) {
             let recordings = "hourly d presuming indoor heat gains are isolated: [" + dIso.toString() + "]\n" + 
                 "hourly d presuming indoor heat gains are fully mixed: [" + dMix.toString() + "]\n" + 
                 "24-hour average d by lumped indoor air: [" + dAvg_24.toString() + "]\n" + 
-                "11-working-hour average d by lumped indoor air: [" + dAvg_11.toString() + "]";
+                "11-working-hour average d by lumped indoor air: [" + dAvg_10.toString() + "]";
 
             document.getElementById("recorder").value = recordings;
         }
 
-        function drawECharts(dIso, dMix, dAvg_24, dAvg_11, dMin) {
+        function drawECharts(dIso, dMix, dAvg_24, dAvg_10, Dmax, Dmin) {
             // Create an ECharts instance
             let myChart = echarts.init(document.getElementById('barChart'));
 
@@ -267,14 +266,14 @@ categories: Toolkit
                     type: 'value',
                     name: 'offset(m)',
                     min: 0,
-                    max: 15
+                    max: 10
                 },
                 // the drawing order follows the sequence in series list
                 series: [
                     {
                         name: 'dIso',
                         type: 'bar',
-                        barGap: '-100%',
+                        barGap: '-70%',
                         itemStyle: {
                             color: '#ddd' // Set the color for Series 2
                         },
@@ -298,16 +297,17 @@ categories: Toolkit
                     {
                         name: 'dMix',
                         type: 'bar',
-                        barGap: '-100%',
+                        barGap: '-70%',
                         itemStyle: {
-                            color: '#b56a8d' // Set the color for Series 2
+                            color: '#b56a8d',
+                            opacity: 0.5
                         },
                         markLine: {
                             symbol:['none','none'],
                             data: [
                             {
-                                name: '11_dAvg',
-                                yAxis: dAvg_11,
+                                name: '10_dAvg',
+                                yAxis: dAvg_10,
                                 lineStyle: {normal: {color: "#437caf", type: "solid"}},
                                 label: {
                                     show: true, 
@@ -320,12 +320,47 @@ categories: Toolkit
                         data: dMix
                     },
                     {
-                        name: 'dMin',
-                        type: 'line',
+                        name: 'Asol',
+                        type: 'bar',
+                        barGap: '-70%',
                         itemStyle: {
-                            color: '#ccc'
+                            color: 'rgb(249, 174, 88)',
+                            opacity: 0.5
                         },
-                        data: dMin
+                        data: [0]
+                    },
+                    {
+                        name: '',
+                        type: 'line',
+                        stack: 'all',
+                        label: { show: false },
+                        itemStyle: {
+                            opacity: 0
+                        },
+                        lineStyle: {
+                            color: 'rgb(249, 174, 88)',
+                            opacity: 0
+                        },
+                        data: Dmin
+                    },
+                    {
+                        name: '',
+                        type: 'line',
+                        stack: 'all',
+                        label: { show: false },
+                        areaStyle: {
+                            color: 'rgb(249, 174, 88)', 
+                            opacity: 0.1
+                        },
+                        lineStyle: {
+                            color: 'rgb(249, 174, 88)',
+                            opacity:0
+                        },
+                        itemStyle: {
+                            color: 'rgb(249, 174, 88)',
+                            opacity:0
+                            },
+                        data: Dmax
                     }
                 ]
             };
@@ -617,6 +652,9 @@ categories: Toolkit
         
         function offsetCalc(city, stamp, psi, cloudiness, temps, uWall, uGlazing, ampPeople, ampLight, ampEquip, setTemp, SHGC, ctsf, rts, H, Hsill, WWR, cond, den, cp, thickness) {
 
+            // the maximum depth of the room, as a default value
+            const dMax = 10;
+
             function dotProduct(list1, list2) {
                 let product = 0;
                 for (let i = 0; i < list1.length; i++) {
@@ -696,17 +734,17 @@ categories: Toolkit
             let schEquip = [0.1,0.1,0.1,0.1,0.1,0.1,0.1,0.1,0.5,0.8,1,1,0.9,0.9,1,1,1,1,0.8,0.5,0.1,0.1,0.1,0.1];
             let CTSFdict = {
                 'Blink':[0.99,0.01,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-                'Curtain':[0.18,0.58,0.2,0.04,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-                'Stud':[0.06,0.42,0.33,0.13,0.04,0.01,0.01,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-                'EIFS':[0.02,0.25,0.31,0.2,0.11,0.05,0.03,0.02,0.01,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0], 
-                'Brick':[0,0.05,0.14,0.17,0.15,0.12,0.09,0.07,0.05,0.04,0.03,0.02,0.02,0.01,0.01,0.01,0.01,0.01,0,0,0,0,0,0],
-                'BrickMass':[0.03,0.03,0.03,0.04,0.04,0.04,0.05,0.05,0.05,0.05,0.05,0.05,0.05,0.05,0.05,0.04,0.04,0.04,0.04,0.04,0.04,0.04,0.03,0.03]
+                'Curtain':[0.18,0.571,0.198,0.04,0.008,0.002,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                'StudWall':[0.016,0.249,0.373,0.219,0.092,0.034,0.012,0.004,0.001,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                'EIFS':[0.005,0.119,0.259,0.229,0.154,0.095,0.057,0.034,0.02,0.012,0.007,0.004,0.002,0.001,0.001,0.001,0,0,0,0,0,0,0,0], 
+                'Brick':[0.002,0.048,0.139,0.167,0.149,0.12,0.092,0.07,0.053,0.04,0.03,0.023,0.017,0.013,0.01,0.007,0.005,0.004,0.003,0.002,0.002,0.001,0.001,0.001],
+                'Concrete':[0.035,0.034,0.033,0.035,0.038,0.042,0.045,0.047,0.048,0.049,0.049,0.048,0.047,0.046,0.045,0.044,0.043,0.042,0.041,0.04,0.039,0.038,0.037,0.036]
             };
 
             let RTSsolardict = {
                 'Blink':[0.99,0.01,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0], 
                 'Light':[0.45,0.2,0.11,0.07,0.05,0.03,0.02,0.02,0.01,0.01,0.01,0.01,0.01,0,0,0,0,0,0,0,0,0,0,0], 
-                'Medium':[0.29,0.15,0.1,0.07,0.06,0.05,0.03,0.03,0.03,0.03,0.02,0.02,0.02,0.02,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0,0], 
+                'Medium':[0.29,0.15,0.1,0.07,0.06,0.05,0.04,0.03,0.03,0.03,0.02,0.02,0.02,0.02,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0,0,0], 
                 'Heavy':[0.27,0.13,0.07,0.05,0.04,0.04,0.03,0.03,0.03,0.03,0.03,0.03,0.02,0.02,0.02,0.02,0.02,0.02,0.02,0.02,0.02,0.02,0.01,0.01]
             };
 
@@ -759,13 +797,17 @@ categories: Toolkit
                 [altitudes[i], azimuths[i]] = solarCalc(latitude, longitude, timezone, stamp+' '+i.toString()+':00:00');
             }
             let theta_cos = new Array(24);
+            let phi_rad = new Array(24);
             for (let i = 0; i < 24; i++) {
-                let beta_rad = altitudes[i] / 180 * Math.PI;
-                let phi_rad = Math.abs(azimuths[i]-psi) * HeavisideNum(90 - Math.abs(azimuths[i]-psi)) / 180 * Math.PI;
-                theta_cos[i] = Math.cos(beta_rad)*Math.cos(phi_rad);
+                let alpha_rad = altitudes[i] / 180 * Math.PI;
+                //phi_rad[i] = (Math.abs(azimuths[i]-psi) * HeavisideNum(90 - Math.abs(azimuths[i]-psi))
+                //    + 90 * HeavisideNum(Math.abs(azimuths[i]-psi) - 90)
+                //    ) / 180 * Math.PI;
+                let delta_phi = Math.abs(azimuths[i] - psi) - 90;
+                phi_rad[i] = (90 - Math.abs(delta_phi) * HeavisideNum(-delta_phi)) / 180 * Math.PI;
+                theta_cos[i] = Math.cos(alpha_rad)*Math.cos(phi_rad[i]);
                 
             }
-
             // use default sky conditions apart from EPW
             let eBeam = new Array(24).fill(0);
             let eDiffuse = new Array(24).fill(0);
@@ -810,6 +852,7 @@ categories: Toolkit
                     qBeam[i] = eBeam[i] * theta_cos[i];
                 }
             }
+            console.log(eBeam, qBeam);
             // Calculate load from heat emission
             //let seriesTsol = [];
             // for (i = 0; i < seriesTout.length; i++) {
@@ -819,13 +862,14 @@ categories: Toolkit
             // }
             // or use this
             let seriesTsol = seriesTout;
-            let qTotal = new Array(24).fill(0);
-            for (let i = 0; i < 24; i++) {
-                qTotal[i] = qBeam[i] + qDiffuse[i];
-            }
+            // let qTotal = new Array(24).fill(0);
+            // for (let i = 0; i < 24; i++) {
+            //     qTotal[i] = qBeam[i] + qDiffuse[i];
+            // }
 
             let tempDiff = seriesTsol.map(element => setTemp - element);
-            let loadSolar = loopSigma(qTotal, RTSsolar);
+            // this is the beam radiation per vertical wall area, same as the diffuse radiation value
+            let loadSolar = loopSigma(qBeam, RTSsolar);
             let loadWall = loopSigma(tempDiff, CTSFwall).map(element => element * uWall_);
             // Calculate load from internal source
             let fracRad = 0.4;
@@ -834,54 +878,69 @@ categories: Toolkit
             for (let i = 0; i < 24; i++) {
                 // will people heat load participates in the radiation lag?
                 qConv[i] = (schPeople[i]*ampPeople + schLight[i]*ampLight) * (1-fracRad) + schEquip[i]*ampEquip;
-                qRad[i] = (schPeople[i]*ampPeople + schLight[i]*ampLight) * fracRad;
+                qRad[i] = (schPeople[i]*ampPeople + schLight[i]*ampLight) * fracRad + qDiffuse[i] * H * WWR / dMax;
             }
-
             let loadMass = loopSigma(qRad, RTSmass);
-            let beta_rad = new Array(24).fill(0.001);
+            let alpha_rad = new Array(24).fill(0.001);
             let loadStructure = new Array(24).fill(0);
 
             for (let i = 0; i < 24; i++) {
                 loadMass[i] = loadMass[i] + qConv[i];
                 if (altitudes[i] > 0) {
-                    beta_rad[i] = altitudes[i] /180 * Math.PI;
+                    alpha_rad[i] = altitudes[i] /180 * Math.PI;
                 }
                 loadStructure[i] = (WWR*uGlazing*(setTemp-seriesTout[i]) + (1-WWR)*loadWall[i]) * H;
             }
 
-            let distances = new Array(24).fill(9999);
+            let Dmin = new Array(24).fill(0);
+            let Dmax = new Array(24).fill(0);
             for (let i = 0; i < 24; i++) {
-                distances[i] = loadStructure[i] / loadMass[i];
-                // whether the inner load can balance off the heating load of exterior wall (loadStructure)
-                // if it can not
-                if (loadStructure[i] > loadMass[i] * Hsill / Math.tan(beta_rad[i]) + loadSolar[i] * SHGC * H * WWR) {
-                    distances[i] = (loadStructure[i] - loadMass[i] * Hsill / Math.tan(beta_rad[i]) - loadSolar[i] * SHGC * H * WWR) / loadMass[i] + (Hsill + H * WWR) / Math.tan(beta_rad[i]);
-                }
-                else {
-                    if (loadStructure[i] > loadMass[i] * Hsill / Math.tan(beta_rad[i])) {
-                        distances[i] = Hsill / Math.tan(beta_rad[i]) + (loadStructure[i] - loadMass[i] * Hsill / Math.tan(beta_rad[i])) / loadSolar[i] / SHGC;
-                    }
-                    else {
-                    }
+                if (alpha_rad[i] > 0 && phi_rad[i] > 0) {
+                    Dmin[i] = Hsill / Math.tan(alpha_rad[i]) * Math.cos(phi_rad[i]);
+                    Dmax[i] = (Hsill + H * WWR) / Math.tan(alpha_rad[i]) * Math.cos(phi_rad[i]);
+                    Dmax[i] = Dmax[i] - Dmin[i];
+                    if (Dmin[i] < 0.01) {Dmin[i] = 0}
+                    if (Dmax[i] < 0.01) {Dmax[i] = 0}
                 }
             }
+            console.log(Dmin, Dmax);
+
+            let distances = new Array(24).fill(9999);
+            for (let i = 0; i < 24; i++) {
+                if (Dmin[i] > 0) {
+                    // <--- d ---- | --- solar --- | --- unlit --- | exterior
+                    if (loadStructure[i] > Dmin[i] * loadMass[i] + loadSolar[i] * SHGC * H * WWR) {
+                        distances[i] = (loadStructure[i] - loadSolar[i] * SHGC * H * WWR) / loadMass[i];
+                    }
+                    // -- | - solar - <- d -- | --- unlit --- | exterior
+                    else {
+                        if (loadStructure[i] > Dmin[i] * loadMass[i]) {
+                            distances[i] = (loadStructure[i] + Dmin[i] * loadSolar[i] * SHGC * H * WWR / Dmax[i]) / 
+                                (loadMass[i] + loadSolar[i] * SHGC * H * WWR / Dmax[i]);
+                        }
+                        // -- | --- solar --- | - unlit -<- d -- | exterior
+                        else {
+                            distances[i] = loadStructure[i] / loadMass[i];
+                        }
+                    }
+                }
+                // -- | --- solar --- | - unlit -<- d -- | exterior
+                else {
+                    distances[i] = loadStructure[i] / loadMass[i];
+                }
+            }
+
             // it seems that I presumed a 10-meter indoor depth here...
             // if the internal heat emission per meter is not 0, then it can be canceled off by the loadStructure
             let distances_mix = new Array(24).fill(9999);
             for (let i = 0; i < 24; i++) {
-                if (loadMass[i] + loadSolar[i] * SHGC * H * WWR / 10 !== 0) {
+                if (loadMass[i] + loadSolar[i] * SHGC * H * WWR / dMax !== 0) {
                     // presuming a complete mix that the solar heat gain distributes evenly in the 10-meter depth
-                    distances_mix[i] = loadStructure[i] / (loadMass[i] + loadSolar[i] * SHGC * H * WWR / 10);
+                    distances_mix[i] = loadStructure[i] / (loadMass[i] + loadSolar[i] * SHGC * H * WWR / dMax);
                 }
             }
 
-            let Dmax = new Array(24).fill(0);
-            let Dmin = new Array(24).fill(0);
-            for (let i = 0; i < 24; i++) {
-                Dmax[i] = (Hsill + H * WWR) / Math.tan(beta_rad[i]);
-                Dmin[i] = Hsill / Math.tan(beta_rad[i]);
-            }
-
+            
             let Diso = HeavisideFilter(distances);
             let Dmix = HeavisideFilter(distances_mix);
             let Diso_ = Diso.map(element => Math.round(element * 10)/10); // round to 0.1
@@ -897,21 +956,21 @@ categories: Toolkit
             let Davg_24 = 9999;
             // for 0-24 hours' full heat mixing, the cancel-off boundary
             if (loadMass_sigma + loadSolar_sigma !== 0) {
-                    Davg_24 = loadStructure_sigma / ((loadMass_sigma + loadSolar_sigma) / 10);
+                    Davg_24 = loadStructure_sigma / (loadMass_sigma + loadSolar_sigma / dMax);
                 }
 
             let loadStructure_sigma_part = 0,
                 loadMass_sigma_part = 0,
                 loadSolar_sigma_part = 0;
-            // for 11 working hours, the cancel-off boundary based on the fully mixed indoor environment
-            for (let i = 8; i < 18; i++) {
+            // for 10 working hours, the cancel-off boundary based on the fully mixed indoor environment
+            for (let i = 9; i < 19; i++) {
                 loadStructure_sigma_part += loadStructure[i];
                 loadMass_sigma_part += loadMass[i];
                 loadSolar_sigma_part += loadSolar[i] * SHGC * H * WWR;
             }
-            let Davg_11 = loadStructure_sigma_part / (loadMass_sigma_part + loadSolar_sigma_part / 10);
+            let Davg_10 = loadStructure_sigma_part / (loadMass_sigma_part + loadSolar_sigma_part / dMax);
 
-            return [Diso_, Dmix_, Davg_24, Davg_11, Dmax, Dmin]
+            return [Diso_, Dmix_, Davg_24, Davg_10, Dmax, Dmin]
         }
 
         $(function() {
