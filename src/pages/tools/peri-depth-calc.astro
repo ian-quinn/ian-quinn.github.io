@@ -1,0 +1,332 @@
+---
+import Layout from "@layouts/Layout.astro";
+import Header from "@components/Header.astro";
+import Footer from "@components/Footer.astro";
+import Main from "@layouts/Main.astro";
+
+---
+
+<Layout>
+  <Header />
+  <Main pageTitle="Perimeter depth calculator" pageDesc=".">
+    <div class="sm:grid sm:grid-cols-2 gap-4 mt-10">
+      <div>
+        <select name="inp_city" type="text" required
+        class="block py-2 px-3 pe-9 w-full border-gray-200 rounded-lg text-sm 
+          focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none 
+          dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">
+          <option selected="">Harbin</option>
+          <option>Beijing</option>
+          <option>Shanghai</option>
+          <option>Guangzhou</option>
+          <option>Lhasa</option>
+          <option>Urumqi</option>
+          <option>Lanzhou</option>
+          <option>Kunming</option>
+        </select>
+      </div>
+      <div>
+        <div class="relative">
+          <div class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
+            <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"/>
+            </svg>
+          </div>
+          <input datepicker name="inp_date" id="default-datepicker" type="text" placeholder="Select date" value="12/21/2024" required
+          class="block py-2 px-3 ps-10 w-full border-gray-200 rounded-lg text-sm 
+            focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none 
+            dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">
+        </div>
+      </div>
+
+      <div>
+        <div class="flex rounded-lg">
+          <span class="px-4 inline-flex items-center min-w-fit rounded-s-md border border-e-0 border-gray-200 bg-gray-50 text-sm text-gray-500 
+          dark:bg-neutral-700 dark:border-neutral-700 dark:text-neutral-400">Normal Axis</span>
+          <input type="number"  name="inp_axis" value="180" required
+          class="py-2 px-3 block w-full border-gray-200 text-sm border-e-0 
+            focus:z-10 focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none 
+            dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">
+          <span class="px-4 inline-flex items-center min-w-fit rounded-e-md border border-s-0 border-gray-200 text-sm text-gray-500 bg-white
+            dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">°</span>
+        </div>
+      </div>
+      <div>
+        <div class="flex rounded-lg">
+          <span class="px-4 inline-flex items-center min-w-fit rounded-s-md border border-e-0 border-gray-200 bg-gray-50 text-sm text-gray-500 
+          dark:bg-neutral-700 dark:border-neutral-700 dark:text-neutral-400">Cloudiness</span>
+          <input type="number" name="inp_clo" value="0.2" required
+          class="py-2 px-3 block w-full border-gray-200 rounded-e-lg text-sm
+            focus:z-10 focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none 
+            dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">
+        </div>
+      </div>
+
+      <div>
+        <div class="flex rounded-lg">
+          <span class="px-4 inline-flex items-center min-w-fit rounded-s-md border border-e-0 border-gray-200 bg-gray-50 text-sm text-gray-500 
+          dark:bg-neutral-700 dark:border-neutral-700 dark:text-neutral-400">Max Temperature</span>
+          <input type="number" name="inp_temp1" value="-10" required
+          class="py-2 px-3 block w-full border-gray-200 text-sm border-e-0 
+            focus:z-10 focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none 
+            dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">
+          <span class="px-4 inline-flex items-center min-w-fit rounded-e-md border border-s-0 border-gray-200 text-sm text-gray-500 bg-white
+            dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">°C</span>
+        </div>
+      </div>
+      <div>
+        <div class="flex rounded-lg">
+          <span 
+          class="px-4 inline-flex items-center min-w-fit rounded-s-md border border-e-0 border-gray-200 bg-gray-50 text-sm text-gray-500 
+          dark:bg-neutral-700 dark:border-neutral-700 dark:text-neutral-400">Min Temperature</span>
+          <input type="number" name="inp_temp2" value="-22" required
+          class="py-2 px-3 block w-full border-gray-200 text-sm border-e-0 
+            focus:z-10 focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none 
+            dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">
+          <span class="px-4 inline-flex items-center min-w-fit rounded-e-md border border-s-0 border-gray-200 text-sm text-gray-500 bg-white
+            dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">°C</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-5 gap-4">
+      <div class="flex">
+        <input type="checkbox" id="radtoggle" 
+        class="shrink-0 mt-0.5 border-gray-200 rounded text-blue-600 disabled:opacity-50 disabled:pointer-events-none focus:ring-transparent
+        dark:bg-neutral-800 dark:border-neutral-700 dark:checked:bg-rose-500 dark:checked:border-rose-500">
+        <label for="hs-default-checkbox" class="text-sm text-gray-500 ms-3 dark:text-neutral-400">Grab solar radiation information from EPW files</label>
+      </div>
+      
+      <div class="flex">
+        <input type="checkbox" id="temptoggle" checked
+        class="shrink-0 mt-0.5 border-gray-200 rounded disabled:opacity-50 disabled:pointer-events-none focus:ring-transparent
+        dark:bg-neutral-800 dark:border-neutral-700 dark:checked:bg-rose-500 dark:checked:border-rose-500">
+        <label for="hs-checked-checkbox" class="text-sm text-gray-500 ms-3 dark:text-neutral-400">Grab temperature series from EPW files</label>
+      </div>
+    </div>
+    
+    <div class="mx-auto py-5">
+      <hr class="border-skin-line" aria-hidden="true" />
+    </div>
+    
+    <div class="sm:grid sm:grid-cols-2 gap-4">
+      <div class="flex rounded-lg">
+        <span 
+        class="px-4 inline-flex items-center min-w-fit rounded-s-md border border-e-0 border-gray-200 bg-gray-50 text-sm text-gray-500 
+        dark:bg-neutral-700 dark:border-neutral-700 dark:text-neutral-400">U_wall</span>
+        <input type="number" name="inp_uwall" value="1" required
+        class="py-2 px-3 block w-full border-gray-200 text-sm border-e-0 
+          focus:z-10 focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none 
+          dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">
+        <span class="px-4 inline-flex items-center min-w-fit rounded-e-md border border-s-0 border-gray-200 text-sm text-gray-500 bg-white
+          dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">W/m<sup>2</sup>⋅K</span>
+      </div>
+      <div class="flex rounded-lg">
+        <span 
+        class="px-4 inline-flex items-center min-w-fit rounded-s-md border border-e-0 border-gray-200 bg-gray-50 text-sm text-gray-500 
+        dark:bg-neutral-700 dark:border-neutral-700 dark:text-neutral-400">U_window</span>
+        <input type="number" name="inp_uwin" value="2.5" required
+        class="py-2 px-3 block w-full border-gray-200 text-sm border-e-0 
+          focus:z-10 focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none 
+          dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">
+        <span class="px-4 inline-flex items-center min-w-fit rounded-e-md border border-s-0 border-gray-200 text-sm text-gray-500 bg-white
+          dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">W/m<sup>2</sup>⋅K</span>
+      </div>
+
+      <div class="flex rounded-lg">
+        <span 
+        class="px-4 inline-flex items-center min-w-fit rounded-s-md border border-e-0 border-gray-200 bg-gray-50 text-sm text-gray-500 
+        dark:bg-neutral-700 dark:border-neutral-700 dark:text-neutral-400">q_people</span>
+        <input type="number" name="inp_peo" value="15" required
+        class="py-2 px-3 block w-full border-gray-200 text-sm border-e-0 
+          focus:z-10 focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none 
+          dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">
+        <span class="px-4 inline-flex items-center min-w-fit rounded-e-md border border-s-0 border-gray-200 text-sm text-gray-500 bg-white
+          dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">W/m<sup>2</sup></span>
+      </div>
+
+      <div class="flex rounded-lg">
+        <span 
+        class="px-4 inline-flex items-center min-w-fit rounded-s-md border border-e-0 border-gray-200 bg-gray-50 text-sm text-gray-500 
+        dark:bg-neutral-700 dark:border-neutral-700 dark:text-neutral-400">q_light</span>
+        <input type="number" name="inp_lgt" value="7" required
+        class="py-2 px-3 block w-full border-gray-200 text-sm border-e-0 
+          focus:z-10 focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none 
+          dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">
+        <span class="px-4 inline-flex items-center min-w-fit rounded-e-md border border-s-0 border-gray-200 text-sm text-gray-500 bg-white
+          dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">W/m<sup>2</sup></span>
+      </div>
+
+      <div class="flex rounded-lg">
+        <span 
+        class="px-4 inline-flex items-center min-w-fit rounded-s-md border border-e-0 border-gray-200 bg-gray-50 text-sm text-gray-500 
+        dark:bg-neutral-700 dark:border-neutral-700 dark:text-neutral-400">q_equip</span>
+        <input type="number" name="inp_eqp" value="20" required
+        class="py-2 px-3 block w-full border-gray-200 text-sm border-e-0 
+          focus:z-10 focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none 
+          dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">
+        <span class="px-4 inline-flex items-center min-w-fit rounded-e-md border border-s-0 border-gray-200 text-sm text-gray-500 bg-white
+          dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">W/m<sup>2</sup></span>
+      </div>
+
+      <div class="flex rounded-lg">
+        <span 
+        class="px-4 inline-flex items-center min-w-fit rounded-s-md border border-e-0 border-gray-200 bg-gray-50 text-sm text-gray-500 
+        dark:bg-neutral-700 dark:border-neutral-700 dark:text-neutral-400">Setpoint</span>
+        <input type="number" name="inp_spt" value="18" required
+        class="py-2 px-3 block w-full border-gray-200 text-sm border-e-0 
+          focus:z-10 focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none 
+          dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">
+        <span class="px-4 inline-flex items-center min-w-fit rounded-e-md border border-s-0 border-gray-200 text-sm text-gray-500 bg-white
+          dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">°C</span>
+      </div>
+
+      <div class="flex rounded-lg">
+        <span class="px-4 inline-flex items-center min-w-fit rounded-s-md border border-e-0 border-gray-200 bg-gray-50 text-sm text-gray-500 
+        dark:bg-neutral-700 dark:border-neutral-700 dark:text-neutral-400">Conduction Time Series Factors</span>
+        <select name="inp_ctsf" type="text" id="ctsfselector" required
+          class="block py-2 px-3 pe-9 w-full border-gray-200 rounded-e-md text-sm 
+            focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none 
+            dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">
+          <option>Blink</option>
+          <option>Curtain</option>
+          <option>StudWall</option>
+          <option>EIFS</option>
+          <option>Brick</option>
+          <option>Concrete</option>
+          <option>Customize!</option>
+        </select>
+      </div>
+
+      <div class="flex rounded-lg">
+        <span class="px-4 inline-flex items-center min-w-fit rounded-s-md border border-e-0 border-gray-200 bg-gray-50 text-sm text-gray-500 
+        dark:bg-neutral-700 dark:border-neutral-700 dark:text-neutral-400">Radiant Time Factors</span>
+        <select type="text" name="inp_rtf" required
+          class="block py-2 px-3 pe-9 w-full border-gray-200 rounded-e-md text-sm 
+            focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none 
+            dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">
+          <option>Blink</option>
+          <option>Light</option>
+          <option>Medium</option>
+          <option>Heavy</option>
+        </select>
+      </div>
+
+    </div>
+    
+    <div id="materialpopout" style="display: none;">
+      <div class="sm:grid sm:grid-cols-2 mt-5 gap-4">
+        <div class="flex rounded-lg">
+          <span 
+          class="px-4 inline-flex items-center min-w-fit rounded-s-md border border-e-0 border-gray-200 bg-gray-50 text-sm text-gray-500 
+          dark:bg-neutral-700 dark:border-neutral-700 dark:text-neutral-400">Conductivity</span>
+          <input type="number" name="inp_cond" value="1.95" required
+          class="py-2 px-3 block w-full border-gray-200 text-sm border-e-0 
+            focus:z-10 focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none 
+            dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">
+          <span class="px-4 inline-flex items-center min-w-fit rounded-e-md border border-s-0 border-gray-200 text-sm text-gray-500 bg-white
+            dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">W/m⋅K</span>
+        </div>
+        <div class="flex rounded-lg">
+          <span 
+          class="px-4 inline-flex items-center min-w-fit rounded-s-md border border-e-0 border-gray-200 bg-gray-50 text-sm text-gray-500 
+          dark:bg-neutral-700 dark:border-neutral-700 dark:text-neutral-400">Density</span>
+          <input type="number" name="inp_den" value="2242.5" required
+          class="py-2 px-3 block w-full border-gray-200 text-sm border-e-0 
+            focus:z-10 focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none 
+            dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">
+          <span class="px-4 inline-flex items-center min-w-fit rounded-e-md border border-s-0 border-gray-200 text-sm text-gray-500 bg-white
+            dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">kg/m<sup>3</sup></span>
+        </div>
+        <div class="flex rounded-lg">
+          <span 
+          class="px-4 inline-flex items-center min-w-fit rounded-s-md border border-e-0 border-gray-200 bg-gray-50 text-sm text-gray-500 
+          dark:bg-neutral-700 dark:border-neutral-700 dark:text-neutral-400">Capacity</span>
+          <input type="number" name="inp_cp" value="900" required
+          class="py-2 px-3 block w-full border-gray-200 text-sm border-e-0 
+            focus:z-10 focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none 
+            dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">
+          <span class="px-4 inline-flex items-center min-w-fit rounded-e-md border border-s-0 border-gray-200 text-sm text-gray-500 bg-white
+            dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">J/kg⋅K</span>
+        </div>
+        <div class="flex rounded-lg">
+          <span 
+          class="px-4 inline-flex items-center min-w-fit rounded-s-md border border-e-0 border-gray-200 bg-gray-50 text-sm text-gray-500 
+          dark:bg-neutral-700 dark:border-neutral-700 dark:text-neutral-400">Thickness</span>
+          <input type="number" name="inp_thickness" value="0.304" required
+          class="py-2 px-3 block w-full border-gray-200 text-sm border-e-0
+            focus:z-10 focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none 
+            dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">
+          <span class="px-4 inline-flex items-center min-w-fit rounded-e-md border border-s-0 border-gray-200 text-sm text-gray-500 bg-white
+            dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">m</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="mx-auto py-5">
+      <hr class="border-skin-line" aria-hidden="true" />
+    </div>
+    
+    <div class="sm:grid sm:grid-cols-2 gap-4">
+      <div class="flex rounded-lg">
+        <span 
+        class="px-4 inline-flex items-center min-w-fit rounded-s-md border border-e-0 border-gray-200 bg-gray-50 text-sm text-gray-500 
+        dark:bg-neutral-700 dark:border-neutral-700 dark:text-neutral-400">Height</span>
+        <input type="number" name="inp_h" value="4" required
+        class="py-2 px-3 block w-full border-gray-200 text-sm border-e-0
+          focus:z-10 focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none 
+          dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">
+        <span class="px-4 inline-flex items-center min-w-fit rounded-e-md border border-s-0 border-gray-200 text-sm text-gray-500 bg-white
+          dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">m</span>
+      </div>
+      <div class="flex rounded-lg">
+        <span 
+        class="px-4 inline-flex items-center min-w-fit rounded-s-md border border-e-0 border-gray-200 bg-gray-50 text-sm text-gray-500 
+        dark:bg-neutral-700 dark:border-neutral-700 dark:text-neutral-400">Sill Height</span>
+        <input type="number" name="inp_sill" value="1" required
+        class="py-2 px-3 block w-full border-gray-200 text-sm border-e-0
+          focus:z-10 focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none 
+          dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">
+        <span class="px-4 inline-flex items-center min-w-fit rounded-e-md border border-s-0 border-gray-200 text-sm text-gray-500 bg-white
+          dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">m</span>
+      </div>
+      <div class="flex rounded-lg">
+        <span 
+        class="px-4 inline-flex items-center min-w-fit rounded-s-md border border-e-0 border-gray-200 bg-gray-50 text-sm text-gray-500 
+        dark:bg-neutral-700 dark:border-neutral-700 dark:text-neutral-400">Window to Wall Ratio</span>
+        <input type="number" name="inp_wwr" value="0.3" required
+        class="py-2 px-3 block w-full border-gray-200 rounded-e-lg text-sm
+          focus:z-10 focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none 
+          dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">
+      </div>
+      <div class="flex rounded-lg">
+        <span 
+        class="px-4 inline-flex items-center min-w-fit rounded-s-md border border-e-0 border-gray-200 bg-gray-50 text-sm text-gray-500 
+        dark:bg-neutral-700 dark:border-neutral-700 dark:text-neutral-400">Solar Heat Gain Coefficient</span>
+        <input type="number" name="inp_shgc" value="0.7" required
+        class="py-2 px-3 block w-full border-gray-200 text-sm rounded-e-md
+          focus:z-10 focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none 
+          dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">
+      </div>
+    </div>
+
+    <button type="button" id="btn-calculator" 
+    class="my-10 py-2 px-3 flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 text-gray-500 
+    hover:border-rose-600 hover:text-rose-600 focus:outline-none focus:border-rose-600 focus:text-rose-600 disabled:opacity-50 disabled:pointer-events-none 
+    dark:border-neutral-700 dark:text-neutral-400 dark:hover:text-rose-300 dark:hover:border-rose-400 dark:focus:text-rose-300 dark:focus:border-rose-400">
+      Calculate
+    </button>
+    
+    <div id="barChart" style="height: 300px;"></div>
+    
+    <div class="my-5">
+      <textarea id="recorder" rows="8" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 
+      focus:ring-blue-500 focus:border-blue-500 
+      dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" 
+      placeholder="Console log"></textarea>
+    </div>
+  </main>
+  <Footer />
+  <script is:inline src="/offset-calculator.js" defer></script>
+  <script is:inline src="/flowbite.min.js" async></script>
+</Layout>

@@ -1,0 +1,31 @@
+---
+import { getCollection } from "astro:content";
+import Header from "@components/Header.astro";
+import Footer from "@components/Footer.astro";
+import Layout from "@layouts/Layout.astro";
+import Main from "@layouts/Main.astro";
+import getUniqueTags from "@utils/getUniqueTags";
+import { SITE } from "@config";
+
+const posts = await getCollection("blog");
+
+let tags = getUniqueTags(posts);
+---
+
+<Layout title={`Tools | ${SITE.title}`}>
+  <Header activeNav="tools" />
+  <Main pageTitle="Tools" pageDesc=".">
+    <ul>
+      <li class="my-6">
+        <a href="./peri-depth-calc" class="inline-block text-lg font-medium text-skin-accent 
+        decoration-dashed underline-offset-4 focus-visible:no-underline focus-visible:underline-offset-0">
+          <h2>Perimeter depth calculator</h2>
+        </a>
+        <p>Calculate the depth of perimeter zone based on heat balance presumption. 
+          Without arguable accuracy, this can be a reference when designing HVAC zone in practice.
+        </p>
+      </li>
+    </ul>
+  </Main>
+  <Footer />
+</Layout>
