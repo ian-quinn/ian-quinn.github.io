@@ -41,8 +41,9 @@ $('#btn-calculator').click(function() {
 
     let toggleTemp = $('#temptoggle:checked').val();
     if (toggleTemp === 'on') {
-        // overwrite temps with epw data
-        fetch("./epw.json")
+        // note that if you inject this javascript in .astro page
+        // this path targets to /public folder by default
+        fetch("/epw.json")
             .then((response) => response.json())
             .then((data) => {
                 let tempSeries = data[city][month + 1].split(',').map(Number);
