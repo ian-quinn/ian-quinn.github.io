@@ -9,9 +9,10 @@ export const SITE: Site = {
   ogImage: "Garlic-og.jpg",
   lightAndDarkMode: true,
   postPerIndex: 4,
-  postPerPage: 5,
+  postPerPage: 10,
   scheduledPostMargin: 15 * 60 * 1000, // 15 minutes
-  showArchives: true,
+  showArchives: false,
+  showSearch: false,
   editPost: {
     url: "https://github.com/ian-quinn/ian-quinn.github.io/",
     text: "",

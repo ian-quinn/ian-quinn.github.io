@@ -1,0 +1,113 @@
+---
+import Layout from "@layouts/Layout.astro";
+import Main from "@layouts/Main.astro";
+import Header from "@components/Header.astro";
+import Footer from "@components/Footer.astro";
+import { SITE } from "@config";
+import { render } from "astro:content";
+import { getCollection } from "astro:content";
+
+// const entry = await getEntry('shelf', 'standards');
+// const { Content, headings } = await render(entry);
+
+export async function getStaticPaths() {
+  const pages = await getCollection("shelf");
+  return pages.map(shelf => ({
+    params: { id: shelf.id },
+    props: { shelf },
+  }));
+}
+
+const { shelf } = Astro.props;
+const { Content } = await render(shelf);
+
+/* ========== Prev/Next Posts ========== */
+const shelves = await getCollection("shelf");
+const allShelves = shelves.map(({ data: { category }, id }) => ({
+  id,
+  category,
+}));
+
+const currentCateIndex = allShelves.findIndex(a => a.id === shelf.id);
+
+const prevShelf = currentCateIndex !== 0 ? allShelves[currentCateIndex - 1] : null;
+const nextShelf =
+  currentCateIndex !== allShelves.length ? allShelves[currentCateIndex + 1] : null;
+---
+
+<Layout title={`${shelf.data.category} | ${SITE.title}`}>
+  <Header activeNav="shelf" />
+  <Main pageTitle={shelf.data.category} pageDesc=".">
+    <p class="mt-5">{shelf.data.description}</p>
+    <folder class="mx-auto mt-8 max-w-3xl">
+      <Content />
+    </folder>
+
+    <!-- Previous/Next Post Buttons -->
+    <div class="grid grid-cols-1 gap-6 sm:grid-cols-2">
+      {
+        prevShelf && (
+          <a
+            href={`/shelf/${prevShelf.id}`}
+            class="flex w-full gap-1 hover:opacity-75"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="icon icon-tabler icons-tabler-outline icon-tabler-chevron-left flex-none"
+            >
+              <>
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path d="M15 6l-6 6l6 6" />
+              </>
+            </svg>
+            <div>
+              <span>Previous Shelf</span>
+              <div class="text-sm text-skin-accent/85">{prevShelf.category}</div>
+            </div>
+          </a>
+        )
+      }
+      {
+        nextShelf && (
+          <a
+            href={`/shelf/${nextShelf.id}`}
+            class="flex w-full justify-end gap-1 text-right hover:opacity-75 sm:col-start-2"
+          >
+            <div>
+              <span>Next Shelf</span>
+              <div class="text-sm text-skin-accent/85">{nextShelf.category}</div>
+            </div>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="icon icon-tabler icons-tabler-outline icon-tabler-chevron-right flex-none"
+            >
+              <>
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path d="M9 6l6 6l-6 6" />
+              </>
+            </svg>
+          </a>
+        )
+      }
+    </div>
+
+  </Main>
+  
+  <Footer />
+</Layout>

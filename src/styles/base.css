@@ -36,16 +36,45 @@
     }
   }
   /* Remove the up and down trigger in TailwindCSS input */
-  @layer base {
-    input[type="number"]::-webkit-inner-spin-button,
-    input[type="number"]::-webkit-outer-spin-button {
-      -webkit-appearance: none;
-      margin: 0;
-    }
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
   }
-
+  /* load local fonts */
+  @font-face {
+    font-family: 'Roboto';
+    src: url(/fonts/Roboto-Regular.ttf) format('truetype');
+    font-style: normal;
+    font-weight: 400;
+  }
+  @font-face {
+    font-family: 'Roboto';
+    src: url(/fonts/Roboto-Italic.ttf) format('truetype');
+    font-style: italic;
+    font-weight: 400;
+  }
+  @font-face {
+    font-family: 'Roboto';
+    src: url(/fonts/Roboto-Bold.ttf) format('truetype');
+    font-style: normal;
+    font-weight: 700;
+  }
+  @font-face {
+    font-family: 'Lora';
+    src: url(/fonts/Lora-Regular.ttf) format('truetype');
+    font-style: normal;
+    font-weight: 400;
+  }
+  @font-face {
+    font-family: 'Lora';
+    src: url(/fonts/Lora-Italic.ttf) format('truetype');
+    font-style: italic;
+    font-weight: 400;
+  }
+  /* note that Lora is applied as the global font setting */
   body {
-    @apply flex min-h-[100svh] flex-col bg-skin-fill font-mono text-skin-base selection:bg-skin-accent/70 selection:text-skin-inverted;
+    @apply flex min-h-[100svh] flex-col font-writing bg-skin-fill text-skin-base selection:bg-skin-accent/70 selection:text-skin-inverted;
   }
   section,
   footer {
@@ -130,6 +159,25 @@
     font-style: var(--shiki-dark-font-style) !important;
     font-weight: var(--shiki-dark-font-weight) !important;
     text-decoration: var(--shiki-dark-text-decoration) !important;
+  }
+
+  /* filelist format */
+  /* this applies to navbar if not restricted in article tag */
+  folder ul {
+    list-style-position: outside;
+    list-style-type: "▣ ";
+    margin-left: 1.2em;
+  }
+  folder ul li {
+    margin-top: 1em;
+    margin-bottom: 1em;
+  }
+  folder del {
+    all: unset;
+    opacity: 0.2;
+  }
+  folder a:hover {
+    color: rgb(var(--color-accent));
   }
 }
 

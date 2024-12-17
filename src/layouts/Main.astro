@@ -15,7 +15,8 @@ export type Props = StringTitleProp | ArrayTitleProp;
 
 const { props } = Astro;
 ---
-
+<!-- placeholder for breadcrumbs -->
+<div class="mt-8"></div>
 <main id="main-content">
   {
     "titleTransition" in props ? (
@@ -35,7 +36,7 @@ const { props } = Astro;
 
 <style>
   #main-content {
-    @apply mx-auto w-full max-w-3xl px-4 pb-4 pt-4;
+    @apply mx-auto w-full max-w-3xl px-4 pb-4;
   }
   #main-content h1 {
     @apply text-2xl font-semibold sm:text-3xl;
