@@ -15,7 +15,7 @@ description: "Educational purpose only. Message me at Github for a DMCA take dow
 - ANSI/ASHRAE Standard [**41.1-2024**](https://drive.google.com/file/d/1rpLY2PfSonY5OhWCg69U-rYmycxfmgiN/view?usp=drive_link)<sup>IMG</sup>  
   Standard Methods for Temperature Measurements
 - ANSI/ASHRAE Standard [**41.2-2022**](https://drive.google.com/file/d/1qWsS2ZroMWm5Pf4tGoNQiORR3FYBk5RO/view?usp=drive_link)  
-  Standard Methods for Air Velocity and Airflow MEasurements
+  Standard Methods for Air Velocity and Airflow Measurements
 - ANSI/ASHRAE Standard [**41.3-2022**](https://drive.google.com/file/d/1FZA2_HlCy_lqJLS_oDU8tPBb1xxjPPXO/view?usp=drive_link)<sup>IMG</sup>  
   Standard Methods for Pressure Measurements
 - ANSI/ASHRAE Standard [**52.2-2017**](https://drive.google.com/file/d/1a1rVjZoEUMXKBuRuvS3lTDQcXUDG2VHG/view?usp=drive_link)  
@@ -127,11 +127,11 @@ description: "Educational purpose only. Message me at Github for a DMCA take dow
 
 ------
 
-- ICC [**700-2020**](https://drive.google.com/file/d/1QBQ2_zfhXTlmk0_myYhMFStub7ck1FTR/view?usp=drive_link) | ~~ICC/ASHRAE 700-2015~~  
+- ICC [**700-2020**](https://drive.google.com/file/d/1QBQ2_zfhXTlmk0_myYhMFStub7ck1FTR/view?usp=drive_link) | ~~2015~~  
   National Green Building Standard
-- ISO [**52000-1-2017**](https://drive.google.com/file/d/1XxKReu1dEhcHGSgCSCoKvAZKvieQKI0R/view?usp=drive_link)  
-  Energy performance of buildings - Overarching EPB assessment. Part 1: General framework and procedures
-- ~~BS/EN/ISO 52016‑1:2017~~
-  ~~Energy performance of buildings – Energy needs for heating and cooling, internal temperatures and sensible and latent heat loads. Part 1: Calculation procedure~~
+- ISO [**52000-1:2017**](https://drive.google.com/file/d/1XxKReu1dEhcHGSgCSCoKvAZKvieQKI0R/view?usp=drive_link) + ISO/TR [**52000-2:2017**](https://drive.google.com/file/d/1O4OaPuUs-3ZikJfihivIKRDhK7laTSXI/view?usp=drive_link)<sup>SVG</sup> + ISO [**52000-3:2023**](https://drive.google.com/file/d/1Xh2nfEaOraM8Zx0x2F-eL6AXKro2MQi-/view?usp=drive_link)<sup>SVG</sup>  
+  Energy performance of buildings - Overarching EPB assessment. Part 1: General framework and procedures. Part 2: Explanation and justification of ISO 52000-1. Part 3: General principles for determination and reporting of primary energy factors (PEF) and CO<sub>2</sub> emission coefficients
+- ~~ISO 52016‑1:2017~~ + ISO/TR [**52016-2:2017**](https://drive.google.com/file/d/1VQVHNgbY91hUzrxmkHZ2n06Rz_WuPEA3/view?usp=drive_link)<sup>SVG</sup> + ISO [**52016-3:2023**](https://drive.google.com/file/d/1Xh2nfEaOraM8Zx0x2F-eL6AXKro2MQi-/view?usp=drive_link)<sup>SVG</sup>  
+  Energy performance of buildings - Energy needs for heating and cooling, internal temperatures and sensible and latent heat loads. Part 1: Calculation procedure. Part 2: Explanation and justification of ISO 52016-1 and ISO 52017-1. Part 3: Calculation procedures regarding adaptive building envelope elements
 - ANSI/NFRC [**100-2017**](https://drive.google.com/file/d/1x4xMKcecgKD3EWlpkqUNFPZ9B1IYDxya/view?usp=drive_link)  
   Procedure for Determining Fenestration Product U-factors

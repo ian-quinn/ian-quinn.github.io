@@ -53,6 +53,7 @@ const { activeNav } = Astro.props;
             <line x1="6" y1="6" x2="18" y2="18" class="close"></line>
           </svg>
         </button>
+
         <ul id="menu-items" class="display-none sm:flex">
           <li>
             <a href="/posts/" class={activeNav === "posts" ? "active" : ""}>
@@ -182,7 +183,7 @@ const { activeNav } = Astro.props;
     @apply flex w-full flex-col items-center sm:ml-2 sm:flex-row sm:justify-end sm:space-x-4 sm:py-0;
   }
   nav ul {
-    @apply mt-4 grid w-44 grid-cols-2 grid-rows-4 gap-x-2 gap-y-2 sm:flex sm:ml-0 sm:mt-0 sm:w-auto sm:gap-x-5 sm:gap-y-0;
+    @apply sm:flex mt-4 w-44 gap-x-2 sm:ml-0 sm:mt-0 sm:w-auto sm:gap-x-5 sm:gap-y-0;
   }
   nav ul li {
     @apply col-span-2 flex items-center justify-center;
@@ -190,13 +191,13 @@ const { activeNav } = Astro.props;
   nav ul li a {
     @apply w-full px-4 py-3 text-center font-medium hover:text-skin-accent sm:my-0 sm:px-2 sm:py-1;
   }
-  nav ul li:nth-last-child(2) a {
+  /* nav ul li:nth-last-child(2) a {
     @apply w-auto;
-  }
-  nav ul li:nth-last-child(1),
+  } */
+  /* nav ul li:nth-last-child(1),
   nav ul li:nth-last-child(2) {
     @apply col-span-1;
-  }
+  } */
   nav .active {
     @apply underline decoration-wavy decoration-2 underline-offset-4;
   }
