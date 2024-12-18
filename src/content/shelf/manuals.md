@@ -10,7 +10,8 @@ description: "Educational purpose only. Message me at Github for a DMCA take dow
 - [Standard 189.1-2014 User's Manual](https://drive.google.com/file/d/1OBipBbROMdwAeszzOPNIQyyisvrzifsc/view?usp=drive_link)
 - [ASHRAE Handbook Fundamentals](https://drive.google.com/file/d/17srQUDBHh_DWZkQjWLsLtiVmxdAgaMhw/view?usp=drive_link) 2021 SI  
 - [ASHRAE Handbook Refrigeration](https://drive.google.com/file/d/1mPa4ACci_-JEvdggBD8OWEIkKLvsrnwI/view?usp=drive_link) 2018 SI
-- [ASHRAE Handbook HVAC Applications](https://drive.google.com/file/d/1vhLAB_hzchmX1xi7j9Uqm5Oj9GONKK3_/view?usp=drive_link) 2017 SI  
+- [ASHRAE Hhandbook HVAC Systems and Equipment](https://drive.google.com/file/d/1gO0d86pt2huBWG45AtfDXRI9Xir7Buzk/view?usp=drive_link) 2020 SI
+- [ASHRAE Handbook HVAC Applications](https://drive.google.com/file/d/1vhLAB_hzchmX1xi7j9Uqm5Oj9GONKK3_/view?usp=drive_link) 2019 SI  
 - [ASHRAE Pocket Guide](https://drive.google.com/file/d/1fgtdkrJEdUA7dSSwJLQPlbOBh0xMgfXz/view?usp=drive_link) for Air Conditioning, Heating, Ventilation, Refrigeration 9e. SI
 - [ASHRAE GreenGuide](https://drive.google.com/file/d/1WhRd2oRfDg-O8AxZSHkN74lTpdtRXXtP/view?usp=drive_link) 5e. Design, Construction, and Operation of Sustainable Buildings
 

@@ -1,6 +1,6 @@
 ---
 category: "Standards"
-description: "Educational purpose only. Message me at Github for a DMCA take down request. Note that `SVG` stands for vector graphics redrawn from the original document (huge file size); `BMP` stands for bitmap images scanned with lower resolution (but with OCR); `IP/SI` marks different version in I-P or SI units."
+description: "Educational purpose only. Message me at Github for a DMCA take down request. Note that `SVG` stands for vector graphics redrawn from the original document (huge file size); `BMP` stands for bitmap images scanned with lower resolution (but with OCR)."
 ---
 
 
@@ -12,6 +12,12 @@ description: "Educational purpose only. Message me at Github for a DMCA take dow
 - ANSI/ASHRAE Standard [**30-2019**](https://drive.google.com/file/d/1-cLelpgv5chBV-8IB1k7PrPKzsXJepKu/view?usp=drive_link)  
   Method of Testing Liquid Chillers
 - ~~ASHRAE Standard 34 Designation and Safety Classification of Refrigerants~~
+- ANSI/ASHRAE Standard [**41.1-2024**](https://drive.google.com/file/d/1rpLY2PfSonY5OhWCg69U-rYmycxfmgiN/view?usp=drive_link)<sup>IMG</sup>  
+  Standard Methods for Temperature Measurements
+- ANSI/ASHRAE Standard [**41.2-2022**](https://drive.google.com/file/d/1qWsS2ZroMWm5Pf4tGoNQiORR3FYBk5RO/view?usp=drive_link)  
+  Standard Methods for Air Velocity and Airflow MEasurements
+- ANSI/ASHRAE Standard [**41.3-2022**](https://drive.google.com/file/d/1FZA2_HlCy_lqJLS_oDU8tPBb1xxjPPXO/view?usp=drive_link)<sup>IMG</sup>  
+  Standard Methods for Pressure Measurements
 - ANSI/ASHRAE Standard [**52.2-2017**](https://drive.google.com/file/d/1a1rVjZoEUMXKBuRuvS3lTDQcXUDG2VHG/view?usp=drive_link)  
   Method of Testing General Ventilation Air-Cleaning Devices for Removal Efficiency by Particle Size
 - ANSI/ASHRAE Standard [**55-2023**](https://drive.google.com/file/d/12LNm1OuisNkU6yRLf-IPKsBgBXaZiA_K/view?usp=drive_link)<sup>IMG</sup> | [2017](https://drive.google.com/file/d/1wVpHqF_PDHBMpZ0niO7lToMDZjgwEzPw/view?usp=drive_link)  
@@ -20,8 +26,12 @@ description: "Educational purpose only. Message me at Github for a DMCA take dow
   Ventilation for Acceptable Indoor Air Quality
 - ANSI/ASHRAE Standard [**62.2-2022**](https://drive.google.com/file/d/1NsJmPChMuJFNhc2qfBbl_XZRMRqSlQpF/view?usp=drive_link) | [2016](https://drive.google.com/file/d/14tO96JPl-OhdLPK6iMZLqcSOO3d2Ozi6/view?usp=drive_link)  
   Ventilation and Acceptable Indoor Air Quality in Residential Buildings
+- ANSI/ASHRAE Standard [**63.2-2024**](https://drive.google.com/file/d/1JDIRJ6uYZ4vGGWhdILAS8_Vizr2mfcpV/view?usp=drive_link)<sup>IMG</sup>  
+  Method of Testing Liquid-Line Filter Drier Filtration Capability
 - ~~ASHRAE Standard 72 Method of Testing Open and Closed Commercial Refrigerators and Freezers~~
-- ANSI/ASHRAE/IES Standard [**90.1-2022**](https://drive.google.com/file/d/1iwjAMaP8-JXzCJ3dCH8CP9B9rm3rkMNk/view?usp=drive_link)<sup>IP</sup> | [2019](https://drive.google.com/file/d/1uoNK2mgdmwZ9sAH7EhDGibHBIUCBo7zH/view?usp=drive_link)<sup>SI</sup> | [2016](https://drive.google.com/file/d/1Dt1t7_k6mv4rANvEQJP1tzmQD05AxjxO/view?usp=drive_link)<sup>SI</sup>   
+- ANSI/ASHRAE Standard [**79-2024**](https://drive.google.com/file/d/1QsYgQyuyQAUk8obmKdRGPZxw1VYSiaVM/view?usp=drive_link)<sup>IMG</sup>  
+  Method of Test for Fan-Coil Units
+- ANSI/ASHRAE/IES Standard [**90.1-2022**](https://drive.google.com/file/d/1JD16srj74RVws4f-YCnxAH-4JFgR3Pkv/view?usp=drive_link) | [2019](https://drive.google.com/file/d/1uoNK2mgdmwZ9sAH7EhDGibHBIUCBo7zH/view?usp=drive_link) | [2016](https://drive.google.com/file/d/1Dt1t7_k6mv4rANvEQJP1tzmQD05AxjxO/view?usp=drive_link)  
   Energy Standard for Buildings Except Low-Rise Residential Buildings
 - ANSI/ASHRAE/IES Standard [**90.2-2018**](https://drive.google.com/file/d/1zoJFgqbXyqtCl_5O7tR-Rz4GPIiiQhAs/view?usp=drive_link) | ~~2024~~  
   Energy-Efficient Design of Low-Rise Residential Buildings
@@ -37,7 +47,7 @@ description: "Educational purpose only. Message me at Github for a DMCA take dow
   Method of Testing to Determine Flow Resistance of HVAC Ducts and Fittings
 - ANSI/ASHRAE/SMACNA Standard [**126-2016**](https://drive.google.com/file/d/13DcmDo2I73003CO_sNtkurDjcuzuq7EF/view?usp=drive_link) | ~~2020~~  
   Method of Testing HVAC Air Ducts
-- ANSI/ASHRAE Standard [**133-2015**](https://drive.google.com/file/d/1LpS_2Omps9roX5pKhlQ9dqal55SLogDS/view?usp=drive_link) | ~~2024~~  
+- ANSI/ASHRAE Standard [**133-2024**](https://drive.google.com/file/d/1vaM7hqUzaQ6UbQXDOK6RcZrgqPM48krZ/view?usp=drive_link)<sup>IMG</sup> | [2015](https://drive.google.com/file/d/1LpS_2Omps9roX5pKhlQ9dqal55SLogDS/view?usp=drive_link)  
   Method of Testing Direct Evaporative Air Coolers
 - ANSI/ASHRAE Standard [**135-2016**](https://drive.google.com/file/d/1fQDP8ZoqnZsNPtLg-yO-TcrDnSw7n2RU/view?usp=drive_link) | ~~2020~~  
   BACnet - A Data Communication Protocol for Building Automation and Control Networks
@@ -45,11 +55,16 @@ description: "Educational purpose only. Message me at Github for a DMCA take dow
   Method of Test for Evaluating Building Performance Simulation Software
 - ANSI/ASHRAE Standard [**145.1-2015**](https://drive.google.com/file/d/1YQKM6Gy7LAfF0r9DvIDDKuFkvuCP9VYq/view?usp=drive_link)  
   Laboratory Test Method for Assessing the Performance of Gas-Phase Air-Cleaning Systems: Loose Granular Media
+- ANSI/ASHRAE Standard [**146-2020**](https://drive.google.com/file/d/1-mUtNS17UEfBz4UoVykGKq_fzQBsbXJK/view?usp=drive_link)  
+  Methods of Test for Rating Pool Heaters
 - ANSI/ASHRAE Standard [**150-2019**](https://drive.google.com/file/d/1pyqMzWeL-Fx_SZGzCGrscYOxP7CiH6af/view?usp=drive_link)  
   Method of Testing the Performance of Cool-Storage Systems
 - ANSI/ASHRAE Standard [**154-2016**](https://drive.google.com/file/d/1Wqkg4TpGkU8xWkhM3b_C_U02vFs2rRNm/view?usp=drive_link) | ~~2022~~  
   Ventilation for Commercial Cooking Operations
-- ~~ASHRAE Standard 160 Criteria for Moisture-Control Design Analysis in Buildings~~
+- ANSI/ASHRAE Standard [**158.1-2024**](https://drive.google.com/file/d/1p7kgdkfz8FfYPNUolfqDxSK2UpNw3NWP/view?usp=drive_link)<sup>IMG</sup>  
+  Methods of Testing Capacity of Refrigerant Solenoid Valves
+- ANSI/ASHRAE Standard [**160-2021**](https://drive.google.com/file/d/12CwfNSN5GZe9ABzoDBuHtpdBz4KSNDOh/view?usp=drive_link)  
+  Criteria for Moisture-Control Design Analysis in Buildings
 - ANSI/ASHRAE Standard [**161-2018**](https://drive.google.com/file/d/1pNBOTyZtxyGum4pIo8sDNleuR2DTvn0g/view?usp=drive_link)<sup>IMG</sup>  
   Air Quality within Commercial Aircraft
 - ANSI/ASHRAE Standard [**169-2021**](https://drive.google.com/file/d/1Ruwc9_c1IUqP7sbm6M7FvqP25xFba-y8/view?usp=drive_link)  
@@ -58,8 +73,12 @@ description: "Educational purpose only. Message me at Github for a DMCA take dow
   Ventilation of Health Care Facilities
 - ANSI/ASHRAE Standard [**180-2018**](https://drive.google.com/file/d/1h0c5L_dUjIX8pIPtH783G-ovmTRpJage/view?usp=drive_link)  
   Standard Practice for Inspection and Maintenance of Commercial Building HVAC Systems
-- ANSI/ASHRAE Standard [**181-2018**](https://drive.google.com/file/d/1pRBN2Y3Bj6a65iuuQCnUnqaopfeBoxnH/view?usp=drive_link)  
+- ANSI/ASHRAE Standard [**181-2023**](https://drive.google.com/file/d/1VPKvOKBie4PiVSu7NlsNgauGpF0xLG2D/view?usp=drive_link)<sup>IMG</sup> | [2018](https://drive.google.com/file/d/1pRBN2Y3Bj6a65iuuQCnUnqaopfeBoxnH/view?usp=drive_link)  
   Methods of Testing for Rating Liquid-to-Liquid Heat Exchangers
+- ANSI/ASHRAE/ACCA Standard [**183-2024**](https://drive.google.com/file/d/1PEG2Gp1sd1n1Cy3k8H1TDcjMqbNxUrks/view?usp=drive_link)<sup>IMG</sup>  
+  Peak Cooling and Heating Load Calculations in Buildings Except Low-Rise Residential Buildings
+- ANSI/ASHRAE Standard [**184-2020**](https://drive.google.com/file/d/1EdYgoK04fEdDPW4J_k0rBwZn-7br9H2y/view?usp=drive_link)<sup>IMG</sup>  
+  Method of Test for Field Performance of Liquid-Chilling Systems
 - ANSI/ASHRAE Standard [**185.1-2020**](https://drive.google.com/file/d/1NXxd5BvokebL4lfKtZAZTamrZvrqcMPO/view?usp=drive_link)  
   Method of Testing UV-C Lights for Use in Air-Handling Units or Air Ducts to Inactivate Airborne Microorganisms
 - ANSI/ASHRAE Standard [**185.2-2020**](https://drive.google.com/file/d/1cTNqnKm3pd5RMYETmfpp5GICoEIedRMY/view?usp=drive_link)  
@@ -70,6 +89,8 @@ description: "Educational purpose only. Message me at Github for a DMCA take dow
   Standard for the Design of High-Performance Green Buildings
 - ANSI/ASHRAE/ASHE Standard [**189.3-2017**](https://drive.google.com/file/d/1sYKD3Go3mjATz_ZmYBTQOqu7TQ9ge5uu/view?usp=drive_link) | ~~2021~~  
   Design, Construction, and Operation of Sustainable High-Performance Health Care Facilities
+- ANSI/ASHRAE Standard [**195-2024**](https://drive.google.com/file/d/1B_CvgqnxoAcjPXMfSAfMv9g6XV95_4lb/view?usp=drive_link)<sup>IMG</sup>  
+  Method of Test for Rating Air Terminal Unit Controls
 - ANSI/ASHRAE/NEMA Standard [**201-2016**](https://drive.google.com/file/d/1evrb95_5gHxPNmtqu6x3DIKNF2dfVevs/view?usp=drive_link)  
   Facility Smart Grid Information Model
 - ANSI/ASHRAE/IES Standard [**202-2018**](https://drive.google.com/file/d/1ZRI_BkvzjrWU8HDQLlr2s7RD6QeavQTS/view?usp=drive_link) | [2013 Addendum b](https://drive.google.com/file/d/1tgwOKcta84gRFL4T4EnZ2Rdi1dqfbjeb/view?usp=drive_link) | ~~2024~~  
@@ -78,6 +99,8 @@ description: "Educational purpose only. Message me at Github for a DMCA take dow
   Energy Simulation Aided Design for Buildings Except Low-Rise Residential Buildings
 - ANSI/ASHRAE/ACCA Standard [**211-2018**](https://drive.google.com/file/d/1zk4Ci-BmYdim-d3sE4JMz0A6pMDLgRuB/view?usp=drive_link)  
   Standard for Commercial Building Energy Audits
+- ANSI/ASHRAE Standard [**212-2019**](https://drive.google.com/file/d/1x32ceF3zI9Jk0LVubNsoHOQEXB_LPlas/view?usp=drive_link)  
+  Method of Test for Determining Energy Performance and Water-Use Efficiency of Add-On Evaporative Precoolers for Unitary Air-Conditioning Equipment
 - ANSI/ASHRAE Standard [**214-2017**](https://drive.google.com/file/d/1WkkVL6qjRgg0Qxk86ORfwPn36QyWMLy7/view?usp=drive_link)  
   Standard for Determining and Expressing Building Energy Performance in a Rating Program
 - ~~ASHRAE Standard 221 Test Method to Field-Measure and Score the Cooling and Heating Performance of an Installed Unitary HVAC System~~
