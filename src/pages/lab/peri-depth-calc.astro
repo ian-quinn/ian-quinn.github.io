@@ -4,6 +4,10 @@ import Header from "@components/Header.astro";
 import Footer from "@components/Footer.astro";
 import Main from "@layouts/Main.astro";
 
+const calculatorInputs = "focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none " + 
+  "dark:bg-neutral-900 dark:border-neutral-700 dark:text-zinc-200 dark:placeholder-neutral-500 dark:focus:ring-neutral-600";
+const calculatorTags = "px-4 inline-flex items-center min-w-fit rounded-e-md border border-s-0 border-gray-200 text-sm text-zinc-700 bg-white " + 
+  "dark:bg-neutral-900 dark:border-neutral-700 dark:text-zinc-200 dark:placeholder-neutral-500 dark:focus:ring-neutral-600";
 ---
 
 <Layout>
@@ -12,9 +16,7 @@ import Main from "@layouts/Main.astro";
     <div class="sm:grid sm:grid-cols-2 gap-4 mt-10">
       <div>
         <select name="inp_city" type="text" required
-        class="block py-2 px-3 pe-9 w-full border-gray-200 rounded-lg text-sm 
-          focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none 
-          dark:bg-neutral-900 dark:border-neutral-700 dark:text-zinc-200 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">
+        class={`block py-2 px-3 pe-9 w-full border-gray-200 rounded-lg text-sm ${calculatorInputs}`}>
           <option selected="">Harbin</option>
           <option>Beijing</option>
           <option>Shanghai</option>
@@ -33,9 +35,7 @@ import Main from "@layouts/Main.astro";
             </svg>
           </div>
           <input datepicker name="inp_date" id="default-datepicker" type="text" placeholder="Select date" value="12/21/2024" required
-          class="block py-2 px-3 ps-10 w-full border-gray-200 rounded-lg text-sm 
-            focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none 
-            dark:bg-neutral-900 dark:border-neutral-700 dark:text-zinc-200 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">
+          class={`block py-2 px-3 ps-10 w-full border-gray-200 rounded-lg text-sm ${calculatorInputs}`}>
         </div>
       </div>
 
@@ -44,11 +44,8 @@ import Main from "@layouts/Main.astro";
           <span class="px-4 inline-flex items-center min-w-fit rounded-s-md border border-e-0 border-gray-200 bg-gray-50 text-sm text-zinc-700 
           dark:bg-neutral-700 dark:border-neutral-700 dark:text-zinc-200">Normal Axis</span>
           <input type="number"  name="inp_axis" value="180" required
-          class="py-2 px-3 block w-full border-gray-200 text-sm border-e-0 
-            focus:z-10 focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none 
-            dark:bg-neutral-900 dark:border-neutral-700 dark:text-zinc-200 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">
-          <span class="px-4 inline-flex items-center min-w-fit rounded-e-md border border-s-0 border-gray-200 text-sm text-zinc-700 bg-white
-            dark:bg-neutral-900 dark:border-neutral-700 dark:text-zinc-200 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">°</span>
+          class={`py-2 px-3 block w-full border-gray-200 text-sm border-e-0 focus:z-10 ${calculatorInputs}`}>
+          <span class={calculatorTags}>°</span>
         </div>
       </div>
       <div>
@@ -56,9 +53,7 @@ import Main from "@layouts/Main.astro";
           <span class="px-4 inline-flex items-center min-w-fit rounded-s-md border border-e-0 border-gray-200 bg-gray-50 text-sm text-zinc-700 
           dark:bg-neutral-700 dark:border-neutral-700 dark:text-zinc-200">Cloudiness</span>
           <input type="number" name="inp_clo" value="0.2" required
-          class="py-2 px-3 block w-full border-gray-200 rounded-e-lg text-sm
-            focus:z-10 focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none 
-            dark:bg-neutral-900 dark:border-neutral-700 dark:text-zinc-200 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">
+          class={`py-2 px-3 block w-full border-gray-200 rounded-e-lg text-sm focus:z-10 ${calculatorInputs}`}>
         </div>
       </div>
 
@@ -67,11 +62,8 @@ import Main from "@layouts/Main.astro";
           <span class="px-4 inline-flex items-center min-w-fit rounded-s-md border border-e-0 border-gray-200 bg-gray-50 text-sm text-zinc-700 
           dark:bg-neutral-700 dark:border-neutral-700 dark:text-zinc-200">Max Temperature</span>
           <input type="number" name="inp_temp1" value="-10" required
-          class="py-2 px-3 block w-full border-gray-200 text-sm border-e-0 
-            focus:z-10 focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none 
-            dark:bg-neutral-900 dark:border-neutral-700 dark:text-zinc-200 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">
-          <span class="px-4 inline-flex items-center min-w-fit rounded-e-md border border-s-0 border-gray-200 text-sm text-zinc-700 bg-white
-            dark:bg-neutral-900 dark:border-neutral-700 dark:text-zinc-200 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">°C</span>
+          class={`py-2 px-3 block w-full border-gray-200 text-sm border-e-0 focus:z-10 ${calculatorInputs}`}>
+          <span class={calculatorTags}>°C</span>
         </div>
       </div>
       <div>
@@ -80,11 +72,8 @@ import Main from "@layouts/Main.astro";
           class="px-4 inline-flex items-center min-w-fit rounded-s-md border border-e-0 border-gray-200 bg-gray-50 text-sm text-zinc-700 
           dark:bg-neutral-700 dark:border-neutral-700 dark:text-zinc-200">Min Temperature</span>
           <input type="number" name="inp_temp2" value="-22" required
-          class="py-2 px-3 block w-full border-gray-200 text-sm border-e-0 
-            focus:z-10 focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none 
-            dark:bg-neutral-900 dark:border-neutral-700 dark:text-zinc-200 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">
-          <span class="px-4 inline-flex items-center min-w-fit rounded-e-md border border-s-0 border-gray-200 text-sm text-zinc-700 bg-white
-            dark:bg-neutral-900 dark:border-neutral-700 dark:text-zinc-200 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">°C</span>
+          class={`py-2 px-3 block w-full border-gray-200 text-sm border-e-0 focus:z-10 ${calculatorInputs}`}>
+          <span class={calculatorTags}>°C</span>
         </div>
       </div>
     </div>
@@ -115,22 +104,16 @@ import Main from "@layouts/Main.astro";
         class="px-4 inline-flex items-center min-w-fit rounded-s-md border border-e-0 border-gray-200 bg-gray-50 text-sm text-zinc-700 
         dark:bg-neutral-700 dark:border-neutral-700 dark:text-zinc-200">U_wall</span>
         <input type="number" name="inp_uwall" value="1" required
-        class="py-2 px-3 block w-full border-gray-200 text-sm border-e-0 
-          focus:z-10 focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none 
-          dark:bg-neutral-900 dark:border-neutral-700 dark:text-zinc-200 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">
-        <span class="px-4 inline-flex items-center min-w-fit rounded-e-md border border-s-0 border-gray-200 text-sm text-zinc-700 bg-white
-          dark:bg-neutral-900 dark:border-neutral-700 dark:text-zinc-200 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">W/m<sup>2</sup>⋅K</span>
+        class={`py-2 px-3 block w-full border-gray-200 text-sm border-e-0 focus:z-10 ${calculatorInputs}`}>
+        <span class={calculatorTags}>W/m<sup>2</sup>⋅K</span>
       </div>
       <div class="flex rounded-lg">
         <span 
         class="px-4 inline-flex items-center min-w-fit rounded-s-md border border-e-0 border-gray-200 bg-gray-50 text-sm text-zinc-700 
         dark:bg-neutral-700 dark:border-neutral-700 dark:text-zinc-200">U_window</span>
         <input type="number" name="inp_uwin" value="2.5" required
-        class="py-2 px-3 block w-full border-gray-200 text-sm border-e-0 
-          focus:z-10 focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none 
-          dark:bg-neutral-900 dark:border-neutral-700 dark:text-zinc-200 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">
-        <span class="px-4 inline-flex items-center min-w-fit rounded-e-md border border-s-0 border-gray-200 text-sm text-zinc-700 bg-white
-          dark:bg-neutral-900 dark:border-neutral-700 dark:text-zinc-200 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">W/m<sup>2</sup>⋅K</span>
+        class={`py-2 px-3 block w-full border-gray-200 text-sm border-e-0 focus:z-10 ${calculatorInputs}`}>
+        <span class={calculatorTags}>W/m<sup>2</sup>⋅K</span>
       </div>
 
       <div class="flex rounded-lg">
@@ -138,11 +121,8 @@ import Main from "@layouts/Main.astro";
         class="px-4 inline-flex items-center min-w-fit rounded-s-md border border-e-0 border-gray-200 bg-gray-50 text-sm text-zinc-700 
         dark:bg-neutral-700 dark:border-neutral-700 dark:text-zinc-200">q_people</span>
         <input type="number" name="inp_peo" value="15" required
-        class="py-2 px-3 block w-full border-gray-200 text-sm border-e-0 
-          focus:z-10 focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none 
-          dark:bg-neutral-900 dark:border-neutral-700 dark:text-zinc-200 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">
-        <span class="px-4 inline-flex items-center min-w-fit rounded-e-md border border-s-0 border-gray-200 text-sm text-zinc-700 bg-white
-          dark:bg-neutral-900 dark:border-neutral-700 dark:text-zinc-200 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">W/m<sup>2</sup></span>
+        class={`py-2 px-3 block w-full border-gray-200 text-sm border-e-0 focus:z-10 ${calculatorInputs}`}>
+        <span class={calculatorTags}>W/m<sup>2</sup></span>
       </div>
 
       <div class="flex rounded-lg">
@@ -150,11 +130,8 @@ import Main from "@layouts/Main.astro";
         class="px-4 inline-flex items-center min-w-fit rounded-s-md border border-e-0 border-gray-200 bg-gray-50 text-sm text-zinc-700 
         dark:bg-neutral-700 dark:border-neutral-700 dark:text-zinc-200">q_light</span>
         <input type="number" name="inp_lgt" value="7" required
-        class="py-2 px-3 block w-full border-gray-200 text-sm border-e-0 
-          focus:z-10 focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none 
-          dark:bg-neutral-900 dark:border-neutral-700 dark:text-zinc-200 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">
-        <span class="px-4 inline-flex items-center min-w-fit rounded-e-md border border-s-0 border-gray-200 text-sm text-zinc-700 bg-white
-          dark:bg-neutral-900 dark:border-neutral-700 dark:text-zinc-200 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">W/m<sup>2</sup></span>
+        class={`py-2 px-3 block w-full border-gray-200 text-sm border-e-0 focus:z-10 ${calculatorInputs}`}>
+        <span class={calculatorTags}>W/m<sup>2</sup></span>
       </div>
 
       <div class="flex rounded-lg">
@@ -162,11 +139,8 @@ import Main from "@layouts/Main.astro";
         class="px-4 inline-flex items-center min-w-fit rounded-s-md border border-e-0 border-gray-200 bg-gray-50 text-sm text-zinc-700 
         dark:bg-neutral-700 dark:border-neutral-700 dark:text-zinc-200">q_equip</span>
         <input type="number" name="inp_eqp" value="20" required
-        class="py-2 px-3 block w-full border-gray-200 text-sm border-e-0 
-          focus:z-10 focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none 
-          dark:bg-neutral-900 dark:border-neutral-700 dark:text-zinc-200 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">
-        <span class="px-4 inline-flex items-center min-w-fit rounded-e-md border border-s-0 border-gray-200 text-sm text-zinc-700 bg-white
-          dark:bg-neutral-900 dark:border-neutral-700 dark:text-zinc-200 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">W/m<sup>2</sup></span>
+        class={`py-2 px-3 block w-full border-gray-200 text-sm border-e-0 focus:z-10 ${calculatorInputs}`}>
+        <span class={calculatorTags}>W/m<sup>2</sup></span>
       </div>
 
       <div class="flex rounded-lg">
@@ -174,20 +148,15 @@ import Main from "@layouts/Main.astro";
         class="px-4 inline-flex items-center min-w-fit rounded-s-md border border-e-0 border-gray-200 bg-gray-50 text-sm text-zinc-700 
         dark:bg-neutral-700 dark:border-neutral-700 dark:text-zinc-200">Setpoint</span>
         <input type="number" name="inp_spt" value="18" required
-        class="py-2 px-3 block w-full border-gray-200 text-sm border-e-0 
-          focus:z-10 focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none 
-          dark:bg-neutral-900 dark:border-neutral-700 dark:text-zinc-200 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">
-        <span class="px-4 inline-flex items-center min-w-fit rounded-e-md border border-s-0 border-gray-200 text-sm text-zinc-700 bg-white
-          dark:bg-neutral-900 dark:border-neutral-700 dark:text-zinc-200 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">°C</span>
+        class={`py-2 px-3 block w-full border-gray-200 text-sm border-e-0 focus:z-10 ${calculatorInputs}`}>
+        <span class={calculatorTags}>°C</span>
       </div>
 
       <div class="flex rounded-lg">
         <span class="px-4 inline-flex items-center min-w-fit rounded-s-md border border-e-0 border-gray-200 bg-gray-50 text-sm text-zinc-700 
         dark:bg-neutral-700 dark:border-neutral-700 dark:text-zinc-200">Conduction Time Series Factors</span>
         <select name="inp_ctsf" type="text" id="ctsfselector" required
-          class="block py-2 px-3 pe-9 w-full border-gray-200 rounded-e-md text-sm 
-            focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none 
-            dark:bg-neutral-900 dark:border-neutral-700 dark:text-zinc-200 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">
+          class={`"block py-2 px-3 pe-9 w-full border-gray-200 rounded-e-md text-sm ${calculatorInputs}`}>
           <option>Blink</option>
           <option>Curtain</option>
           <option>StudWall</option>
@@ -202,9 +171,7 @@ import Main from "@layouts/Main.astro";
         <span class="px-4 inline-flex items-center min-w-fit rounded-s-md border border-e-0 border-gray-200 bg-gray-50 text-sm text-zinc-700 
         dark:bg-neutral-700 dark:border-neutral-700 dark:text-zinc-200">Radiant Time Factors</span>
         <select type="text" name="inp_rtf" required
-          class="block py-2 px-3 pe-9 w-full border-gray-200 rounded-e-md text-sm 
-            focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none 
-            dark:bg-neutral-900 dark:border-neutral-700 dark:text-zinc-200 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">
+          class={`block py-2 px-3 pe-9 w-full border-gray-200 rounded-e-md text-sm ${calculatorInputs}`}>
           <option>Blink</option>
           <option>Light</option>
           <option>Medium</option>
@@ -221,44 +188,32 @@ import Main from "@layouts/Main.astro";
           class="px-4 inline-flex items-center min-w-fit rounded-s-md border border-e-0 border-gray-200 bg-gray-50 text-sm text-zinc-700 
           dark:bg-neutral-700 dark:border-neutral-700 dark:text-zinc-200">Conductivity</span>
           <input type="number" name="inp_cond" value="1.95" required
-          class="py-2 px-3 block w-full border-gray-200 text-sm border-e-0 
-            focus:z-10 focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none 
-            dark:bg-neutral-900 dark:border-neutral-700 dark:text-zinc-200 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">
-          <span class="px-4 inline-flex items-center min-w-fit rounded-e-md border border-s-0 border-gray-200 text-sm text-zinc-700 bg-white
-            dark:bg-neutral-900 dark:border-neutral-700 dark:text-zinc-200 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">W/m⋅K</span>
+            class={`py-2 px-3 block w-full border-gray-200 text-sm border-e-0 focus:z-10 ${calculatorInputs}`}>
+          <span class={calculatorTags}>W/m⋅K</span>
         </div>
         <div class="flex rounded-lg">
           <span 
           class="px-4 inline-flex items-center min-w-fit rounded-s-md border border-e-0 border-gray-200 bg-gray-50 text-sm text-zinc-700 
           dark:bg-neutral-700 dark:border-neutral-700 dark:text-zinc-200">Density</span>
           <input type="number" name="inp_den" value="2242.5" required
-          class="py-2 px-3 block w-full border-gray-200 text-sm border-e-0 
-            focus:z-10 focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none 
-            dark:bg-neutral-900 dark:border-neutral-700 dark:text-zinc-200 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">
-          <span class="px-4 inline-flex items-center min-w-fit rounded-e-md border border-s-0 border-gray-200 text-sm text-zinc-700 bg-white
-            dark:bg-neutral-900 dark:border-neutral-700 dark:text-zinc-200 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">kg/m<sup>3</sup></span>
+          class={`py-2 px-3 block w-full border-gray-200 text-sm border-e-0 focus:z-10 ${calculatorInputs}`}>
+          <span class={calculatorTags}>kg/m<sup>3</sup></span>
         </div>
         <div class="flex rounded-lg">
           <span 
           class="px-4 inline-flex items-center min-w-fit rounded-s-md border border-e-0 border-gray-200 bg-gray-50 text-sm text-zinc-700 
           dark:bg-neutral-700 dark:border-neutral-700 dark:text-zinc-200">Capacity</span>
           <input type="number" name="inp_cp" value="900" required
-          class="py-2 px-3 block w-full border-gray-200 text-sm border-e-0 
-            focus:z-10 focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none 
-            dark:bg-neutral-900 dark:border-neutral-700 dark:text-zinc-200 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">
-          <span class="px-4 inline-flex items-center min-w-fit rounded-e-md border border-s-0 border-gray-200 text-sm text-zinc-700 bg-white
-            dark:bg-neutral-900 dark:border-neutral-700 dark:text-zinc-200 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">J/kg⋅K</span>
+          class={`py-2 px-3 block w-full border-gray-200 text-sm border-e-0 focus:z-10 ${calculatorInputs}`}>
+          <span class={calculatorTags}>J/kg⋅K</span>
         </div>
         <div class="flex rounded-lg">
           <span 
           class="px-4 inline-flex items-center min-w-fit rounded-s-md border border-e-0 border-gray-200 bg-gray-50 text-sm text-zinc-700 
           dark:bg-neutral-700 dark:border-neutral-700 dark:text-zinc-200">Thickness</span>
           <input type="number" name="inp_thickness" value="0.304" required
-          class="py-2 px-3 block w-full border-gray-200 text-sm border-e-0
-            focus:z-10 focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none 
-            dark:bg-neutral-900 dark:border-neutral-700 dark:text-zinc-200 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">
-          <span class="px-4 inline-flex items-center min-w-fit rounded-e-md border border-s-0 border-gray-200 text-sm text-zinc-700 bg-white
-            dark:bg-neutral-900 dark:border-neutral-700 dark:text-zinc-200 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">m</span>
+          class={`py-2 px-3 block w-full border-gray-200 text-sm border-e-0 focus:z-10 ${calculatorInputs}`}>
+          <span class={calculatorTags}>m</span>
         </div>
       </div>
     </div>
@@ -273,40 +228,30 @@ import Main from "@layouts/Main.astro";
         class="px-4 inline-flex items-center min-w-fit rounded-s-md border border-e-0 border-gray-200 bg-gray-50 text-sm text-zinc-700 
         dark:bg-neutral-700 dark:border-neutral-700 dark:text-zinc-200">Height</span>
         <input type="number" name="inp_h" value="4" required
-        class="py-2 px-3 block w-full border-gray-200 text-sm border-e-0
-          focus:z-10 focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none 
-          dark:bg-neutral-900 dark:border-neutral-700 dark:text-zinc-200 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">
-        <span class="px-4 inline-flex items-center min-w-fit rounded-e-md border border-s-0 border-gray-200 text-sm text-zinc-700 bg-white
-          dark:bg-neutral-900 dark:border-neutral-700 dark:text-zinc-200 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">m</span>
+        class={`py-2 px-3 block w-full border-gray-200 text-sm border-e-0 focus:z-10 ${calculatorInputs}`}>
+        <span class={calculatorTags}>m</span>
       </div>
       <div class="flex rounded-lg">
         <span 
         class="px-4 inline-flex items-center min-w-fit rounded-s-md border border-e-0 border-gray-200 bg-gray-50 text-sm text-zinc-700 
         dark:bg-neutral-700 dark:border-neutral-700 dark:text-zinc-200">Sill Height</span>
         <input type="number" name="inp_sill" value="1" required
-        class="py-2 px-3 block w-full border-gray-200 text-sm border-e-0
-          focus:z-10 focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none 
-          dark:bg-neutral-900 dark:border-neutral-700 dark:text-zinc-200 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">
-        <span class="px-4 inline-flex items-center min-w-fit rounded-e-md border border-s-0 border-gray-200 text-sm text-zinc-700 bg-white
-          dark:bg-neutral-900 dark:border-neutral-700 dark:text-zinc-200 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">m</span>
+        class={`py-2 px-3 block w-full border-gray-200 text-sm border-e-0 focus:z-10 ${calculatorInputs}`}>
+        <span class={calculatorTags}>m</span>
       </div>
       <div class="flex rounded-lg">
         <span 
         class="px-4 inline-flex items-center min-w-fit rounded-s-md border border-e-0 border-gray-200 bg-gray-50 text-sm text-zinc-700 
         dark:bg-neutral-700 dark:border-neutral-700 dark:text-zinc-200">Window to Wall Ratio</span>
         <input type="number" name="inp_wwr" value="0.3" required
-        class="py-2 px-3 block w-full border-gray-200 rounded-e-lg text-sm
-          focus:z-10 focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none 
-          dark:bg-neutral-900 dark:border-neutral-700 dark:text-zinc-200 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">
+        class={`py-2 px-3 block w-full border-gray-200 rounded-e-lg text-sm focus:z-10 ${calculatorInputs}`}>
       </div>
       <div class="flex rounded-lg">
         <span 
         class="px-4 inline-flex items-center min-w-fit rounded-s-md border border-e-0 border-gray-200 bg-gray-50 text-sm text-zinc-700 
         dark:bg-neutral-700 dark:border-neutral-700 dark:text-zinc-200">Solar Heat Gain Coefficient</span>
         <input type="number" name="inp_shgc" value="0.7" required
-        class="py-2 px-3 block w-full border-gray-200 text-sm rounded-e-md
-          focus:z-10 focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none 
-          dark:bg-neutral-900 dark:border-neutral-700 dark:text-zinc-200 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">
+        class={`py-2 px-3 block w-full border-gray-200 text-sm rounded-e-md focus:z-10 ${calculatorInputs}`}>
       </div>
     </div>
 
@@ -321,12 +266,18 @@ import Main from "@layouts/Main.astro";
     
     <div class="my-5">
       <textarea id="recorder" rows="8" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 
-      focus:ring-blue-500 focus:border-blue-500 
+      focus:ring-blue-500 focus:border-blue-500 bg-white dark:bg-neutral-900
       dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" 
       placeholder="Console log"></textarea>
     </div>
   </main>
   <Footer />
+  <script src="https://cdn.bootcss.com/jquery/3.0.0/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
   <script is:inline src="/offset-calculator.js" defer></script>
   <script is:inline src="/flowbite.min.js" async></script>
 </Layout>
+
+<style>
+  /* zip all text and backgroud color scheme in css format */
+</style>

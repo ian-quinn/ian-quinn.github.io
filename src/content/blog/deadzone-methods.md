@@ -127,19 +127,11 @@ modified Full Orthogonalization Arnoldi for large sequential snapshots". Remark 
 >**Input** $\pmb{x}_{k+1} = \pmb{Ax}_k, \quad \pmb{x}_{k}\in\mathbb{R}^n$  
 >**Output** empirical Ritz values $\lambda_j$, empirical Ritz vectors $\pmb{v}_j$
 >1. Define $\pmb{K} = [\pmb{x}_0 \quad \pmb{Ax}_0 \quad \cdots \quad \pmb{A}^{m-1}\pmb{x}_0]$ 
->2. Find constants $\pmb{c}$ such that 
->$$\pmb{r}=\pmb{x}_m-\pmb{Kc}$$
+>2. Find constants $\pmb{c}$ such that  
+>$$\pmb{r}=\pmb{x}_m-\pmb{Kc}$$  
 >$$\pmb{r}\perp span\{\pmb{x}_0,\pmb{Ax}_0,\cdots,\pmb{A}^{m-1}\pmb{x}_0\}$$
->3. Define companion matrix:
-$$
-\pmb{C}=\begin{bmatrix}
-0 & 0 & \cdots & 0 & c_0 \\ 
-1 & 0 &  & 0 & c_1 \\ 
-0 & 1 &  & 0 & c_2 \\ 
-\vdots &  & \ddots & & \vdots \\
-0 & 0 & \cdots & 1 & c_{m-1} \\
-\end{bmatrix}
-$$
+>3. Define companion matrix:  
+>$$ \pmb{C}=\begin{bmatrix} 0 & 0 & \cdots & 0 & c_0 \\ 1 & 0 &  & 0 & c_1 \\ 0 & 1 &  & 0 & c_2 \\ \vdots &  & \ddots & & \vdots \\ 0 & 0 & \cdots & 1 & c_{m-1} \\ \end{bmatrix} $$
 >4. Find its eigenvalues and eigenvectors by $\pmb{C}=\pmb{T}^{-1}\pmb{\Lambda T}$
 >5. empirical Ritz values are diagonal values of $\pmb{\Lambda}$
 >6. empirical Ritz vectors are columns of $\pmb{V}=\pmb{KT}^{-1}$
