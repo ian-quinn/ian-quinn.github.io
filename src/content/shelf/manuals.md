@@ -17,35 +17,26 @@ description: "Educational purpose only. Message me at Github for a DMCA take dow
 
 ------
 
-- [实用供热空调设计手册](https://drive.google.com/file/d/1MjWEZ0ekKmWE5oHEal-YnSUh3pEPh9S-/view?usp=drive_link) @ 陆耀庆等
-- [HVAC Design Source Book](https://drive.google.com/file/d/1DTzfp5N2He-QCn3IBo4KKO_51gWLFCvw/view?usp=drive_link) 2e.
-  @ Michael Schwarz, 2020
-- [HVAC Systems Duct Design](https://drive.google.com/file/d/1GK17QpiMFOw70jfcL20lHKYvEcgl8mds/view?usp=drive_link) 4e. 
-  @ SMACNA, 2006
-- [Duct System Design Guide](https://drive.google.com/file/d/1Ywq048EpLO5EO07rd3nyYimK9pytH4HI/view?usp=drive_link)
-  @ McGill AirFlow Corporation, 2003
-- [HVAC Layout and Design](https://drive.google.com/file/d/1KoGChlFs_ongwiAVbNGa5u74qWhP0bmN/view?usp=drive_link). SunCam online continuing education course
-  @ Eric L. Brault, 2021
-- ~~Mechanical Estimating Manual. Sheet Metal, Piping and Plumbing @ Wendes Systems Inc., 2007~~
-- [Life Cycle costing for HVAC systems](https://drive.google.com/file/d/1--DraQhVjdjO3TdCPH0sC-wkf-UyrTMj/view?usp=drive_link)
-  @ Carrier, 2005
-- [HVAC Testing, Adjusting and Balancing Manual](https://drive.google.com/file/d/1MKRaVkUWPQSXI2HdBDG8XT-ux7Yrvrxz/view?usp=drive_link)<sup>IMG</sup> 3e.
-  @ John Gladstone, W.David Bevirt, 1997
-- [HVAC Systems Testing, Adjusting and Balancing](https://drive.google.com/file/d/1ctk1c0s60zcAKbil4wGVjn5YSFdUuYYZ/view?usp=drive_link) 3e. 
-  @ SMACNA, 2002
-- [Energy Audits and Improvements for Commercial Buildings](https://drive.google.com/file/d/1y4w9iOP9KCzOBm3qoJAj4FOmfCn9Ss3C/view?usp=drive_link)
-  @ Ian M. Shapiro, 2016
+- ASHRAE Guideline [**10-2023**](https://drive.google.com/file/d/1bBHUyVLvfIYrwfFg0Vy5b-lZ5oS45IU4/view?usp=drive_link)<sup>IMG</sup>  
+  Interactions Affecting the Achievement of Acceptable Indoor Environments
+- ASHRAE Guideline [**13-2024**](https://drive.google.com/file/d/1ueo9x6QquxGJFADIYlVzd8MHbtPnHj81/view?usp=drive_link)<sup>IMG</sup>  
+  Specifying Building Automation Systems
+- ASHRAE Guideline [**16-2022**](https://drive.google.com/file/d/1AqboPsWhjrm8hnQtE-KxEiCGIJbZMDJK/view?usp=drive_link)  
+  Selecting Outdoor, Return, and Relief Dampers for Air-Side Economizer Systems
+- ASHRAE Guideline [**34-2019**](https://drive.google.com/file/d/1lH6rgESVN_rmBrLQOIOhRp8zUXOtIlym/view?usp=drive_link)  
+  Energy Guideline for Historic Buildings
+- ASHRAE Guideline [**36-2021**](https://drive.google.com/file/d/1xGsj7Cz-GTaP7S7w3yg0lgRB9PhHcWOB/view?usp=drive_link)  
+  High-Performance Sequences of Operation for HVAC Systems
 
 ------
 
-- [Sustainable Technologies for Nearly Zero Energy Buildings](https://drive.google.com/file/d/1wn0nfAnt6M9KpFuom_2IEFoAhX6H8AQM/view?usp=drive_link)
-  @ Sašo Medved, Suzana Domjan, Ciril Arkar, 2019
-- [Green Building. Guidebook for Sustainable Architecture](https://drive.google.com/file/d/1Gl1N08W1car-IBd6feB5KQuLN5F5Jpyh/view?usp=drive_link)
-  @ Michael Bauer, Peter Mösle, Michael Schwarz, 2007
-- [Natural Ventilation in High-Rise Office Buildings](https://drive.google.com/file/d/1Vn7mpEUJcFQlK8A-UF-F4yx_LaTz4wgO/view?usp=drive_link)
-  @ CTBUH Sustainability Working Group, 2013
-
-------
-
-- ~~Fundamentals of Psychrometrics 2e. @ Don Brandt, 2016~~
-  
+- CIBSE [**AM11-2015**](https://drive.google.com/file/d/1Cf8r4uOxjyt9FJl6XLb1kPNHJDOsCbdS/view?usp=drive_link) | [1998](https://drive.google.com/file/d/18HLRnpf98YSHeK6Qm1kowqMeLGpu-Y8N/view?usp=drive_link) Building performance modeling
+- CIBSE [**TM42-2006**](https://drive.google.com/file/d/1X3-OSYNlJ00gcWtigrXzKyvxy4yddswe/view?usp=drive_link) Fan application guide
+- CIBSE [**TM52-2013**](https://drive.google.com/file/d/1h_Jiey42qhJX4rzTJXWXDL-zU2V2JL8_/view?usp=drive_link) The limits of thermal comfort: avoiding overheating in European buildings
+- CIBSE [**TM59-2017**](https://drive.google.com/file/d/1u1WsEXejHklZqwdzqcJe7RyZoPVi7HMx/view?usp=drive_link) Design methodology for the assessment of overheating risk in homes
+- CIBSE Guide [**A-2015**](https://drive.google.com/file/d/1vY0LHLlY_ofbq1_Q0eQTGuFqaPdkVL9z/view?usp=drive_link) Environmental design
+- CIBSE Guide [**B1-2016**](https://drive.google.com/file/d/1Lp9z_S-vYzUkRiAWDp9Dfq9lxhjFYW1n/view?usp=drive_link) Heating
+- CIBSE Guide [**B2-2016**](https://drive.google.com/file/d/1bB1D9XHxbhBh3p0wN6cOYUhP1MD09udT/view?usp=drive_link) Ventilation and ductwork
+- CIBSE Guide [**B4-2016**](https://drive.google.com/file/d/1LcZC0Oos31-oEpj83jIyTvUo4Kkmq6ue/view?usp=drive_link) Noise and vibration control for building services systems
+- CIBSE Guide [**F-2004**](https://drive.google.com/file/d/1qeyscPl1EYi2nLCPagsTGyUcSKySGdC0/view?usp=drive_link) Energy efficiency in buildings
+- CIBSE Guide [**K-2004**](https://drive.google.com/file/d/1-1pdnJXCM81HJ9IXQ-N0wyz3vnacdei2/view?usp=drive_link) Electricity in buildings
