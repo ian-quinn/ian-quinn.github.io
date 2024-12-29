@@ -30,7 +30,8 @@ description: "Educational purpose only. Message me at Github for a DMCA take dow
   @ Michael Bauer, Peter Mösle, Michael Schwarz, 2007
 - [Natural Ventilation in High-Rise Office Buildings](https://drive.google.com/file/d/1Vn7mpEUJcFQlK8A-UF-F4yx_LaTz4wgO/view?usp=drive_link)
   @ CTBUH Sustainability Working Group, 2013
-
+- [Advanced Energy Design Guide for Small to Medium Office](https://drive.google.com/file/d/1HdYJy5udvguQE5CxjZmYpqDYEcUoPfxL/view?usp=drive_link)  
+  @ ASHRAE / AIA / DOE
 ------
 
 - ~~Fundamentals of Psychrometrics 2e. @ Don Brandt, 2016~~

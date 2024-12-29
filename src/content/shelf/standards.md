@@ -11,6 +11,8 @@ description: "Educational purpose only. Message me at Github for a DMCA take dow
   Method of Testing for Rating Room Air Conditioners, Packaged Terminal Air Conditioners, and Packaged Terminal Heat Pumps for Cooling and Heating Capacity
 - ANSI/ASHRAE Standard [**30-2019**](https://drive.google.com/file/d/1-cLelpgv5chBV-8IB1k7PrPKzsXJepKu/view?usp=drive_link)  
   Method of Testing Liquid Chillers
+- ANSI/ASHRAE Standard [**33-2016**](https://drive.google.com/file/d/1AHVcUhOpTHcLDk-CAH6jPYFr2vQ2ZznN/view?usp=drive_link)  
+  Methods of Testing Forced_Circulation Air-Cooling and Air-Heating Coils
 - ~~ASHRAE Standard 34 Designation and Safety Classification of Refrigerants~~
 - ANSI/ASHRAE Standard [**41.1-2024**](https://drive.google.com/file/d/1rpLY2PfSonY5OhWCg69U-rYmycxfmgiN/view?usp=drive_link)<sup>IMG</sup>  
   Standard Methods for Temperature Measurements
@@ -18,6 +20,8 @@ description: "Educational purpose only. Message me at Github for a DMCA take dow
   Standard Methods for Air Velocity and Airflow Measurements
 - ANSI/ASHRAE Standard [**41.3-2022**](https://drive.google.com/file/d/1FZA2_HlCy_lqJLS_oDU8tPBb1xxjPPXO/view?usp=drive_link)<sup>IMG</sup>  
   Standard Methods for Pressure Measurements
+- ANSI/ASHRAE Standard [**41.8-2016**](https://drive.google.com/file/d/1kH-ZiXCIEiu2dzdxDllCHyw68zC9zKtM/view?usp=drive_link)  
+  Standard methods for Liquid Flow Measurement
 - ANSI/ASHRAE Standard [**52.2-2017**](https://drive.google.com/file/d/1a1rVjZoEUMXKBuRuvS3lTDQcXUDG2VHG/view?usp=drive_link)  
   Method of Testing General Ventilation Air-Cleaning Devices for Removal Efficiency by Particle Size
 - ANSI/ASHRAE Standard [**55-2023**](https://drive.google.com/file/d/12LNm1OuisNkU6yRLf-IPKsBgBXaZiA_K/view?usp=drive_link)<sup>IMG</sup> | [2017](https://drive.google.com/file/d/1wVpHqF_PDHBMpZ0niO7lToMDZjgwEzPw/view?usp=drive_link)  
@@ -31,6 +35,8 @@ description: "Educational purpose only. Message me at Github for a DMCA take dow
 - ~~ASHRAE Standard 72 Method of Testing Open and Closed Commercial Refrigerators and Freezers~~
 - ANSI/ASHRAE Standard [**79-2024**](https://drive.google.com/file/d/1QsYgQyuyQAUk8obmKdRGPZxw1VYSiaVM/view?usp=drive_link)<sup>IMG</sup>  
   Method of Test for Fan-Coil Units
+- ANSI/ASHRAE Standard [**84-2024**](https://drive.google.com/file/d/1lXuYux5q0dJFe-a9cdx2sgdEcUwN8-a-/view?usp=drive_link)  
+  Method of Testing Air-to-Air Heat/Energy Exchangers
 - ANSI/ASHRAE/IES Standard [**90.1-2022**](https://drive.google.com/file/d/1JD16srj74RVws4f-YCnxAH-4JFgR3Pkv/view?usp=drive_link) | [2019](https://drive.google.com/file/d/1uoNK2mgdmwZ9sAH7EhDGibHBIUCBo7zH/view?usp=drive_link) | [2016](https://drive.google.com/file/d/1Dt1t7_k6mv4rANvEQJP1tzmQD05AxjxO/view?usp=drive_link)  
   Energy Standard for Buildings Except Low-Rise Residential Buildings
 - ANSI/ASHRAE/IES Standard [**90.2-2018**](https://drive.google.com/file/d/1zoJFgqbXyqtCl_5O7tR-Rz4GPIiiQhAs/view?usp=drive_link) | ~~2024~~  
@@ -47,6 +53,8 @@ description: "Educational purpose only. Message me at Github for a DMCA take dow
   Method of Testing to Determine Flow Resistance of HVAC Ducts and Fittings
 - ANSI/ASHRAE/SMACNA Standard [**126-2016**](https://drive.google.com/file/d/13DcmDo2I73003CO_sNtkurDjcuzuq7EF/view?usp=drive_link) | ~~2020~~  
   Method of Testing HVAC Air Ducts
+- ANSI/ASHRAE Standard [**130-2016**](https://drive.google.com/file/d/1N7B6hiDBJ_ap7vlrS4fR9KC3cI9ixynl/view?usp=drive_link)  
+  Laboratory Methods of Testing Air Terminal Units
 - ANSI/ASHRAE Standard [**133-2024**](https://drive.google.com/file/d/1vaM7hqUzaQ6UbQXDOK6RcZrgqPM48krZ/view?usp=drive_link)<sup>IMG</sup> | [2015](https://drive.google.com/file/d/1LpS_2Omps9roX5pKhlQ9dqal55SLogDS/view?usp=drive_link)  
   Method of Testing Direct Evaporative Air Coolers
 - ANSI/ASHRAE Standard [**135-2016**](https://drive.google.com/file/d/1fQDP8ZoqnZsNPtLg-yO-TcrDnSw7n2RU/view?usp=drive_link) | ~~2020~~  
@@ -91,6 +99,8 @@ description: "Educational purpose only. Message me at Github for a DMCA take dow
   Design, Construction, and Operation of Sustainable High-Performance Health Care Facilities
 - ANSI/ASHRAE Standard [**195-2024**](https://drive.google.com/file/d/1B_CvgqnxoAcjPXMfSAfMv9g6XV95_4lb/view?usp=drive_link)<sup>IMG</sup>  
   Method of Test for Rating Air Terminal Unit Controls
+- ANSI/ASHRAE Standard [**199-2016**](https://drive.google.com/file/d/1Mp-vAqzygCx2Mf2Pw87I3rFA3MjVW4Ud/view?usp=drive_link)
+  Method of Testing the Performance of Industrial Pulse Cleaned Dust Collectors
 - ANSI/ASHRAE/NEMA Standard [**201-2016**](https://drive.google.com/file/d/1evrb95_5gHxPNmtqu6x3DIKNF2dfVevs/view?usp=drive_link)  
   Facility Smart Grid Information Model
 - ANSI/ASHRAE/IES Standard [**202-2018**](https://drive.google.com/file/d/1ZRI_BkvzjrWU8HDQLlr2s7RD6QeavQTS/view?usp=drive_link) | [2013 Addendum b](https://drive.google.com/file/d/1tgwOKcta84gRFL4T4EnZ2Rdi1dqfbjeb/view?usp=drive_link) | ~~2024~~  
@@ -114,14 +124,25 @@ description: "Educational purpose only. Message me at Github for a DMCA take dow
 
 ------
 
-- ICC [**700-2020**](https://drive.google.com/file/d/1QBQ2_zfhXTlmk0_myYhMFStub7ck1FTR/view?usp=drive_link) | ~~2015~~  
-  National Green Building Standard
 - EN [**12831-1:2017**](https://drive.google.com/file/d/17Wu4gYYVMHTvlzZdcN3DM70GfI6_HMtM/view?usp=drive_link)<sup>SVG</sup> | [CEN/TR 12831-2:2017](https://drive.google.com/file/d/1eCk5S0HLSLCPJn8u5SzHs2dOY6JhO9Tn/view?usp=drive_link) | [EN 12831-3:2017](https://drive.google.com/file/d/1Y4DcrPjSHt5f_iKNQNyYSLZc_Mq_nP-u/view?usp=drive_link)  
   Energy performance of buildings - Method for calculation of the design heat load. Part 1: Space heating load, Module M3-3. Part 2: Explanation and justification of EN 12831-1, Module M3-3. Part 3: Domestic hot water systems heat load and characterisation of needs, Module M8-2, M8-3
 - ISO [**52000-1:2017**](https://drive.google.com/file/d/1XxKReu1dEhcHGSgCSCoKvAZKvieQKI0R/view?usp=drive_link) + ISO/TR [52000-2:2017](https://drive.google.com/file/d/1O4OaPuUs-3ZikJfihivIKRDhK7laTSXI/view?usp=drive_link)<sup>SVG</sup> + ISO [52000-3:2023](https://drive.google.com/file/d/1Xh2nfEaOraM8Zx0x2F-eL6AXKro2MQi-/view?usp=drive_link)<sup>SVG</sup>  
   Energy performance of buildings - Overarching EPB assessment. Part 1: General framework and procedures. Part 2: Explanation and justification of ISO 52000-1. Part 3: General principles for determination and reporting of primary energy factors (PEF) and CO<sub>2</sub> emission coefficients
 - ISO [**52016‑1:2017**](https://drive.google.com/file/d/1rqececmLR_hdC9bf-95T1KSa1HqOjEe_/view?usp=drive_link)<sup>SVG</sup> + ISO/TR [52016-2:2017](https://drive.google.com/file/d/1VQVHNgbY91hUzrxmkHZ2n06Rz_WuPEA3/view?usp=drive_link)<sup>SVG</sup> + ISO [52016-3:2023](https://drive.google.com/file/d/1Xh2nfEaOraM8Zx0x2F-eL6AXKro2MQi-/view?usp=drive_link)<sup>SVG</sup>  
   Energy performance of buildings - Energy needs for heating and cooling, internal temperatures and sensible and latent heat loads. Part 1: Calculation procedure. Part 2: Explanation and justification of ISO 52016-1 and ISO 52017-1. Part 3: Calculation procedures regarding adaptive building envelope elements
+
+------
+
+- ICC [700-2020](https://drive.google.com/file/d/1QBQ2_zfhXTlmk0_myYhMFStub7ck1FTR/view?usp=drive_link) | ~~2015~~ National Green Building Standard
+- ICC [IBC-2021](https://drive.google.com/file/d/1g-9nqx2TdrClvedjCyqcuFyX1syb16o4/view?usp=drive_link) | ~~2024~~ Internaltional Building Code
+- ICC [ICCPC-2021](https://drive.google.com/file/d/1J8NkC0piDqRx7UqovHbKImmK8kxH-UDT/view?usp=drive_link) | 2024 Performance Code for Buildings and Facilities
+- ICC [IECC-2021](https://drive.google.com/file/d/16XmJY7NnNVDfXf4xAotDTYweEQ4A0YaE/view?usp=drive_link) | ~~2024~~ International Energy Conservation Code
+- ICC [IEBC-2021](https://drive.google.com/file/d/1crUmSE_bkFlrwioYCrm2F2kJUuhB6lLZ/view?usp=drive_link)<sup>IMG</sup> | ~~2024~~ International Exisiting Building Code
+- ICC [IMC-2021](https://drive.google.com/file/d/1fxrgE3ijaNEXJ5ljxvgKHz42Dh3zADqp/view?usp=drive_link) | ~~2024~~ International Mechanical Code
+- ICC [IFC-2021](https://drive.google.com/file/d/12t4TVXp_1iIZzelWyiy0Id4z0C5ZqDEs/view?usp=drive_link) | ~~2024~~ International Fire Code
+
+------
+
 - ANSI/NFRC [**100-2017**](https://drive.google.com/file/d/1x4xMKcecgKD3EWlpkqUNFPZ9B1IYDxya/view?usp=drive_link)  
   Procedure for Determining Fenestration Product U-factors
 - [WELL Building Standard v2](https://drive.google.com/file/d/1NqLeWOxYFxvXTGJ67hVthlwQ8NisJGmr/view?usp=drive_link)
