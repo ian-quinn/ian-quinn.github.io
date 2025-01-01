@@ -3,11 +3,11 @@ category: "Manuals"
 description: "Educational purpose only. Message me at Github for a DMCA take down request."
 ---
 
-- ASHRAE Standard User's Manual [55-2013](https://drive.google.com/file/d/1yM9rAonCcTIXfdjrugFPjfWRYKydxGBI/view?usp=drive_link)
-- ASHRAE Standard User's Manual [62.1-2019](https://drive.google.com/file/d/1Cho0cwcm4Al2oI1Xkp4pxCuQc4VvAMfZ/view?usp=drive_link) | [2016](https://drive.google.com/file/d/1wD_qUPTDFipO8yOsOp9B2e6c7ha2Qj2D/view?usp=drive_link)
-- ASHRAE Standard User's Manual [62.2-2019](https://drive.google.com/file/d/1626Vjwn9XFr1Y4C7UNuNNI1dqhyYfRpk/view?usp=drive_link)<sup>IMG</sup>
-- ASHRAE Standard User's Manual [90.1-2016](https://drive.google.com/file/d/1NPRQ8T2tksA315VMTupgm9gsXVwVl7Zu/view?usp=drive_link) | [2010](https://drive.google.com/file/d/1TnNtfu11FPhQxX6v6EE3tajD9rlBJIBp/view?usp=drive_link)
-- ASHRAE Standard User's Manual [189.1-2014](https://drive.google.com/file/d/1OBipBbROMdwAeszzOPNIQyyisvrzifsc/view?usp=drive_link)
+- ASHRAE User's Manual Standard [55-2013](https://drive.google.com/file/d/1yM9rAonCcTIXfdjrugFPjfWRYKydxGBI/view?usp=drive_link)
+- ASHRAE User's Manual Standard [62.1-2019](https://drive.google.com/file/d/1Cho0cwcm4Al2oI1Xkp4pxCuQc4VvAMfZ/view?usp=drive_link) | [2016](https://drive.google.com/file/d/1wD_qUPTDFipO8yOsOp9B2e6c7ha2Qj2D/view?usp=drive_link)
+- ASHRAE User's Manual Standard [62.2-2019](https://drive.google.com/file/d/1626Vjwn9XFr1Y4C7UNuNNI1dqhyYfRpk/view?usp=drive_link)<sup>IMG</sup>
+- ASHRAE User's Manual Standard [90.1-2016](https://drive.google.com/file/d/1NPRQ8T2tksA315VMTupgm9gsXVwVl7Zu/view?usp=drive_link) | [2010](https://drive.google.com/file/d/1TnNtfu11FPhQxX6v6EE3tajD9rlBJIBp/view?usp=drive_link)
+- ASHRAE User's Manual Standard [189.1-2014](https://drive.google.com/file/d/1OBipBbROMdwAeszzOPNIQyyisvrzifsc/view?usp=drive_link)
 - ASHRAE Handbook Fundamentals SI [2021](https://drive.google.com/file/d/17srQUDBHh_DWZkQjWLsLtiVmxdAgaMhw/view?usp=drive_link)
 - ASHRAE Handbook Refrigeration SI [2022](https://drive.google.com/file/d/1VGfHlO-X2XFvWnyoFv3ihz1liJFg_wk8/view?usp=drive_link) | [2018](https://drive.google.com/file/d/1mPa4ACci_-JEvdggBD8OWEIkKLvsrnwI/view?usp=drive_link)
 - ASHRAE Handbook HVAC Systems and Equipment SI [2024](https://drive.google.com/file/d/1-ln_KxR8v7NX8LmeYHInyfd-hy2udUE9/view?usp=drive_link) | [2020](https://drive.google.com/file/d/1gO0d86pt2huBWG45AtfDXRI9Xir7Buzk/view?usp=drive_link)

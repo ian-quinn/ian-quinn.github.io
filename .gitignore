@@ -24,3 +24,6 @@ pnpm-debug.log*
 .idea/
 
 .vscode/
+
+# obsidian settings
+/src/content/.obsidian

@@ -31,7 +31,10 @@ description: "Educational purpose only. Message me at Github for a DMCA take dow
 - [Natural Ventilation in High-Rise Office Buildings](https://drive.google.com/file/d/1Vn7mpEUJcFQlK8A-UF-F4yx_LaTz4wgO/view?usp=drive_link)
   @ CTBUH Sustainability Working Group, 2013
 - [Advanced Energy Design Guide for Small to Medium Office](https://drive.google.com/file/d/1HdYJy5udvguQE5CxjZmYpqDYEcUoPfxL/view?usp=drive_link)  
-  @ ASHRAE / AIA / DOE
+  @ ASHRAE / AIA / DOE, 2019
+- [Integrated Buildings - The Systems Basis of Architecture](https://drive.google.com/file/d/18iGv5XqCdQWr6QJih7Do897fBkQk4-Is/view?usp=drive_link)
+  @ Leonard R. Bachman, 2003
+
 ------
 
 - ~~Fundamentals of Psychrometrics 2e. @ Don Brandt, 2016~~
