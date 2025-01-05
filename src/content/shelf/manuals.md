@@ -5,7 +5,7 @@ description: "Educational purpose only. Message me at Github for a DMCA take dow
 
 - ASHRAE User's Manual Standard [55-2013](https://drive.google.com/file/d/1yM9rAonCcTIXfdjrugFPjfWRYKydxGBI/view?usp=drive_link)
 - ASHRAE User's Manual Standard [62.1-2019](https://drive.google.com/file/d/1Cho0cwcm4Al2oI1Xkp4pxCuQc4VvAMfZ/view?usp=drive_link) | [2016](https://drive.google.com/file/d/1wD_qUPTDFipO8yOsOp9B2e6c7ha2Qj2D/view?usp=drive_link)
-- ASHRAE User's Manual Standard [62.2-2019](https://drive.google.com/file/d/1626Vjwn9XFr1Y4C7UNuNNI1dqhyYfRpk/view?usp=drive_link)<sup>IMG</sup>
+- ASHRAE User's Manual Standard [62.2-2019](https://drive.google.com/file/d/1Jd8WAgNJ92GS-SRZ4qQK0jZKpsMKqUe9/view?usp=drive_link)
 - ASHRAE User's Manual Standard [90.1-2016](https://drive.google.com/file/d/1NPRQ8T2tksA315VMTupgm9gsXVwVl7Zu/view?usp=drive_link) | [2010](https://drive.google.com/file/d/1TnNtfu11FPhQxX6v6EE3tajD9rlBJIBp/view?usp=drive_link)
 - ASHRAE User's Manual Standard [189.1-2014](https://drive.google.com/file/d/1OBipBbROMdwAeszzOPNIQyyisvrzifsc/view?usp=drive_link)
 - ASHRAE Handbook Fundamentals SI [2021](https://drive.google.com/file/d/17srQUDBHh_DWZkQjWLsLtiVmxdAgaMhw/view?usp=drive_link)

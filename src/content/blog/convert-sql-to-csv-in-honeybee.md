@@ -1,19 +1,19 @@
 ---
-title:  "Convert Honeybee-EnergyPlus output SQL to CSV"
+title:  "Convert the output SQL from Honeybee/EnergyPlus to CSV"
 pubDate:   2024-12-31
 tags:
     - Grasshopper
     - LadybugTools
     - Python
-    - .gh
+    - EnergyPlus
 description: "Honeybee does not output simulation results in CSV format. Some GHPython codes may help unpacking 'Output:Variable' from 'eplusout.sql' as CSV file"
 ---
 
 `Python 2.7` `LadybugTools 1.8.0`
 
-![Custom component connection](../images/sql2csv.png)
+## Write CSV in Honeybee workflow
 
-## Write CSV in LadybugTools workflow
+![Custom component connection](../images/sql2csv.png)
 
 There are some complaints about the inconvenience of `HB Model To OSM` module in Honeybee for its incapability to output CSV format of variables, neither you can find such CSV file in the batch simulation folder of EnergyPlus (because HB simply does not run the CSV conversion batch). However, you can append a simple Python block to the HB workflow to write down the data yourself:
 

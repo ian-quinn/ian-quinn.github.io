@@ -13,5 +13,9 @@ export default defineConfig({
   markdown: {
     remarkPlugins: [remarkMath],
     rehypePlugins: [rehypeKatex],
+    shikiConfig: {
+      themes: { light: "everforest-light", dark: "everforest-dark" },
+      wrap: true,
+    },
   }
 });

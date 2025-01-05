@@ -2,7 +2,7 @@
 title:  "RevitAPI - Location curve of Wall/Curtain/CurtainSystem"
 pubDate:   2022-11-06
 tags:
-    - API
+    - Revit
 description: "--"
 ---
 

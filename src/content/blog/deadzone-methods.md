@@ -2,7 +2,7 @@
 title:  "Algorithm choices for Koopman Analysis and DMD"
 pubDate:   2022-11-06
 tags:
-    - math
+    - Math
 description: "dd"
 ---
 
