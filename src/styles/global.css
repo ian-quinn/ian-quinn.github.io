@@ -30,6 +30,15 @@
   html[data-theme="dark"] #sun-svg {
     display: block;
   }
+
+  #en-svg,
+  html[data-theme="dark"] #zh-svg {
+    display: none;
+  }
+  #zh-svg,
+  html[data-theme="dark"] #en-svg {
+    display: block;
+  }
   
   /* Light up KaTeX in the dark */
   html[data-theme="dark"] {

@@ -1,5 +1,5 @@
 ---
-title:  "Algorithm choices for Koopman Analysis and DMD"
+title:  "Data dimension for DMD variants"
 pubDate:   2022-11-06
 tags:
     - Math

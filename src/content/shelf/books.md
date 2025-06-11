@@ -38,4 +38,9 @@ description: "Educational purpose only. Message me at Github for a DMCA take dow
 ------
 
 - ~~Fundamentals of Psychrometrics 2e. @ Don Brandt, 2016~~
+
+------
+
+- [Essays on Thermodynamic Architecture and Beauty](https://drive.google.com/file/d/1XkTKUdO7kL6r8fgyw3qphj-w_8rdcfJJ/view?usp=drive_link) @ Iñaki Ábalos, Renata Sentkiewicz, 2015
+- Thermodynamic Interactions @ Javier Garcia-German
   

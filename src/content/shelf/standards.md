@@ -12,7 +12,7 @@ description: "Educational purpose only. Message me at Github for a DMCA take dow
 - ANSI/ASHRAE Standard [**30-2019**](https://drive.google.com/file/d/1-cLelpgv5chBV-8IB1k7PrPKzsXJepKu/view?usp=drive_link)  
   Method of Testing Liquid Chillers
 - ANSI/ASHRAE Standard [**33-2016**](https://drive.google.com/file/d/1AHVcUhOpTHcLDk-CAH6jPYFr2vQ2ZznN/view?usp=drive_link)  
-  Methods of Testing Forced_Circulation Air-Cooling and Air-Heating Coils
+  Methods of Testing Forced-Circulation Air-Cooling and Air-Heating Coils
 - ~~ASHRAE Standard 34 Designation and Safety Classification of Refrigerants~~
 - ANSI/ASHRAE Standard [**41.1-2024**](https://drive.google.com/file/d/1rpLY2PfSonY5OhWCg69U-rYmycxfmgiN/view?usp=drive_link)<sup>IMG</sup>  
   Standard Methods for Temperature Measurements
