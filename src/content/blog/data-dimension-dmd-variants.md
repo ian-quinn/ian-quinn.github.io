@@ -188,7 +188,7 @@ $$
 
 -----------------
 
-The spatial & temporal attributes
+## The spatial & temporal attributes
 
 *space << time*, n << m. The rank of $\pmb{K}$ is at most n, that is, the rank-deficiency is inevitable when computing $\pmb{c}$, which implies no uniqueness of $\pmb{c}$. (It if unique when and only when $\pmb{K}$ has linear independent columns, i.e., full-ranked)
 
@@ -204,7 +204,7 @@ Examples:
 
 ---------------------------
 
-Tips  
+## Tips  
 The eigenvalues of the following offset diagonal matrix, are the <u>n-th roots of unity</u>, $\lambda_j=e^{2\pi ij/n}$, because you will always get $\lambda^n=1$ solving the matrix.
 $$
 \begin{bmatrix}
@@ -241,6 +241,16 @@ $$
 0 & 0 & \cdots & \Vert \pmb{u}_k \Vert \\
 \end{bmatrix}
 $$
+
+
+## Pending notes
+
+Recordings from the video: [System Identification: Dynamic Mode Decomposition with Control](https://www.youtube.com/watch?v=K-7l0q920io)
+> One way I'd' like to think about this is: if I was doing the feedback control and let $u=Kx$, I essentially have my dynamics as $x_{k+1} = Ax_k + BKx_k = (A+BK)x_k$. So what I am getting is, if I just naively just do DMD on the data $x_k$ without taking account of the data $u_k$, the input data, then I'll get the wrong dynamics, the modified dynamics instead of the original A and B matrix. There is a fundamental ambiguity here, where if I actually have a system that has been actively controlled by $u=Kx$, I can't tell the difference between the dynamic of $A+BK$ with no forcing, or the system $Ax_k + Bu_k$ with the feedback law $u=Kx$. So in terms of data regression, those are both valid solutions to the data if my system is being controlled. So often what I have to do is to add some kind of a noise signal or kicks to my system where I actually kick $u$ occasionally to measure the transients in the dynamics.
+
+[Kutz.2016] - p.100 
+DMD and DMDc are modal decomposition methods discovering coherent spatiotemporal patterns from high-dimensional data [Schmid.2010] 
+
 
 
 ----------------------
